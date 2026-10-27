@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroSense AI | Precision Irrigation & Crop Health Intelligence (GP-02)</title>
+    <title>AgroSense AI — Smart Irrigation & Crop Health</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -30,189 +30,145 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .gradient-card {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(6, 78, 59, 0.25) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-        /* Custom scrollbar for clean inner panels */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
         ::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.8); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(16, 185, 129, 0.6); }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 h-screen flex overflow-hidden antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 h-screen flex overflow-hidden antialiased">
 
-    <!-- LEFT SIDEBAR -->
-    <aside class="w-64 bg-slate-900/90 border-r border-slate-800 flex flex-col flex-shrink-0 z-40 select-none">
-        <!-- Brand Header -->
-        <div class="h-16 px-5 border-b border-slate-800 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center shadow-lg shadow-brand-500/20">
-                    <i data-lucide="sprout" class="w-5 h-5 text-white"></i>
-                </div>
-                <div>
-                    <div class="flex items-center space-x-1.5">
-                        <span class="text-base font-bold tracking-tight text-white">AgroSense <span class="text-brand-500">AI</span></span>
-                        <span class="px-1.5 py-0.2 text-[10px] font-bold rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">GP-02</span>
-                    </div>
-                    <p class="text-[10px] text-slate-400">Green Planet Intelligence</p>
-                </div>
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-slate-900 border-r border-slate-800 flex flex-col flex-shrink-0 z-40 select-none">
+        <!-- Logo -->
+        <div class="h-16 px-5 border-b border-slate-800 flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-md shadow-emerald-900/30">
+                <i data-lucide="sprout" class="w-5 h-5"></i>
+            </div>
+            <div>
+                <span class="text-base font-bold tracking-tight text-white">AgroSense <span class="text-emerald-400">AI</span></span>
+                <p class="text-[11px] text-slate-400">Smart Farming Assistant</p>
             </div>
         </div>
 
-        <!-- Navigation Links -->
-        <nav class="flex-1 px-3 py-4 space-y-1.5 overflow-y-auto">
-            <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2">Core Platform</p>
-            
-            <button onclick="switchTab('irrigation')" id="nav-irrigation" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition bg-brand-500/10 text-brand-400 border border-brand-500/30 shadow-sm">
-                <i data-lucide="droplets" class="w-4 h-4 text-brand-400"></i>
-                <span>Irrigation Advisory</span>
+        <!-- Navigation Menu -->
+        <nav class="flex-1 px-3 py-5 space-y-1.5 overflow-y-auto">
+            <button onclick="switchTab('irrigation')" id="nav-irrigation" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                <i data-lucide="droplets" class="w-4 h-4"></i>
+                <span>Irrigation Planner</span>
             </button>
 
             <button onclick="switchTab('pathology')" id="nav-pathology" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent transition">
                 <i data-lucide="scan" class="w-4 h-4"></i>
-                <div class="flex items-center justify-between flex-1">
-                    <span>Foliar Pathology & XAI</span>
-                    <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">Upload</span>
-                </div>
+                <span>Crop Disease Scanner</span>
             </button>
 
             <button onclick="switchTab('telemetry')" id="nav-telemetry" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent transition">
-                <i data-lucide="database" class="w-4 h-4"></i>
-                <span>Telemetry Audit Logs</span>
+                <i data-lucide="history" class="w-4 h-4"></i>
+                <span>Farm Records & History</span>
             </button>
 
-            <button onclick="switchTab('benchmarks')" id="nav-benchmarks" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent transition">
-                <i data-lucide="award" class="w-4 h-4"></i>
-                <div class="flex items-center justify-between flex-1">
-                    <span>Model Benchmarks</span>
-                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">96.8%</span>
-                </div>
-            </button>
-
-            <div class="pt-4 pb-2">
-                <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2">Developer Tools</p>
+            <div class="pt-6 border-t border-slate-800/60 mt-6 space-y-1">
                 <a href="/docs" target="_blank" class="w-full flex items-center space-x-3 px-3 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition">
                     <i data-lucide="code-2" class="w-4 h-4"></i>
-                    <span>Interactive Swagger API</span>
+                    <span>API Documentation</span>
                     <i data-lucide="external-link" class="w-3 h-3 ml-auto text-slate-500"></i>
                 </a>
                 <a href="https://github.com/Rashid-005/AgroSense-AI" target="_blank" class="w-full flex items-center space-x-3 px-3 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition">
                     <i data-lucide="github" class="w-4 h-4"></i>
-                    <span>GitHub Repository</span>
+                    <span>GitHub Code</span>
                     <i data-lucide="external-link" class="w-3 h-3 ml-auto text-slate-500"></i>
                 </a>
             </div>
         </nav>
 
-        <!-- Sidebar Footer Status -->
-        <div class="p-4 border-t border-slate-800 bg-slate-950/40">
-            <div class="flex items-center space-x-2 text-xs text-slate-300 mb-1">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="font-semibold text-[11px]">System: Online</span>
-            </div>
-            <p class="text-[10px] text-slate-500 font-mono">Database: SQLite Connected</p>
+        <!-- Status -->
+        <div class="p-4 border-t border-slate-800 bg-slate-950/40 text-[11px] text-slate-400 flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>System Active & Connected</span>
         </div>
     </aside>
 
-    <!-- RIGHT MAIN WRAPPER -->
+    <!-- MAIN CONTENT -->
     <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
 
-        <!-- Top Header Bar -->
-        <header class="h-16 bg-slate-900/60 border-b border-slate-800 px-6 flex items-center justify-between flex-shrink-0 backdrop-blur-md">
+        <!-- Top Header -->
+        <header class="h-16 bg-slate-900/50 border-b border-slate-800 px-6 flex items-center justify-between flex-shrink-0">
             <div>
-                <h1 id="viewTitle" class="text-base font-bold text-white flex items-center space-x-2">
-                    <span>Precision Irrigation Advisory Engine</span>
-                </h1>
-                <p id="viewSubtitle" class="text-xs text-slate-400">FAO-56 Penman-Monteith Evapotranspiration energy balance modeling</p>
+                <h1 id="viewTitle" class="text-base font-bold text-white">Irrigation Planner</h1>
+                <p id="viewSubtitle" class="text-xs text-slate-400">Calculate exact water required for your crops based on soil and weather</p>
             </div>
 
-            <!-- Top Presets Shortcut Bar -->
             <div class="flex items-center space-x-2">
-                <span class="text-xs text-slate-400 hidden md:inline">Quick Scenarios:</span>
-                <button onclick="loadPreset('scenario_1')" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition flex items-center space-x-1.5">
-                    <i data-lucide="flame" class="w-3.5 h-3.5"></i>
-                    <span>Drought Maize</span>
+                <span class="text-xs text-slate-400">Quick Test:</span>
+                <button onclick="loadScenario('dry')" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition">
+                    Dry Field (Maize)
                 </button>
-                <button onclick="loadPreset('scenario_2')" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border border-blue-500/30 transition flex items-center space-x-1.5">
-                    <i data-lucide="cloud-rain" class="w-3.5 h-3.5"></i>
-                    <span>Rain (Skip)</span>
-                </button>
-                <button onclick="loadPreset('scenario_3')" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition flex items-center space-x-1.5">
-                    <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
-                    <span>Potato Precision</span>
+                <button onclick="loadScenario('rain')" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border border-blue-500/30 transition">
+                    Rainy Forecast (Tomato)
                 </button>
             </div>
         </header>
 
-        <!-- Main Body View Area -->
+        <!-- Main Workspace -->
         <main class="flex-1 overflow-y-auto p-6 bg-slate-950">
 
-            <!-- ========================================== -->
-            <!-- TAB 1: PRECISION IRRIGATION ADVISORY (GP-02) -->
-            <!-- ========================================== -->
+            <!-- TAB 1: IRRIGATION PLANNER -->
             <div id="tab-irrigation" class="space-y-6">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-                    <!-- Controls Card -->
-                    <div class="lg:col-span-7 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
-                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                            <div class="flex items-center space-x-2.5">
-                                <div class="p-2 rounded-lg bg-brand-500/10 text-brand-400">
-                                    <i data-lucide="sliders" class="w-5 h-5"></i>
-                                </div>
-                                <h2 class="font-bold text-slate-100 text-sm">Agronomic Telemetry & Soil Parameters</h2>
-                            </div>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-emerald-400 border border-slate-700">FAO-56 ET0 Protocol</span>
+                    <!-- Inputs Card -->
+                    <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+                        <div class="border-b border-slate-800 pb-3 flex items-center space-x-2">
+                            <i data-lucide="sliders" class="w-4 h-4 text-emerald-400"></i>
+                            <h2 class="font-bold text-slate-100 text-sm">Farm & Weather Conditions</h2>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-medium text-slate-300 mb-1">Target Crop</label>
-                                <select id="cropSelect" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-500">
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Crop</label>
+                                <select id="cropSelect" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
                                     <option value="tomato">Tomato</option>
                                     <option value="maize">Maize / Corn</option>
                                     <option value="potato">Potato</option>
-                                    <option value="rice">Paddy Rice</option>
+                                    <option value="rice">Rice</option>
                                     <option value="wheat">Wheat</option>
-                                    <option value="vegetables">Mixed Horticulture</option>
+                                    <option value="vegetables">Vegetables</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-medium text-slate-300 mb-1">Growth Phenology Stage</label>
-                                <select id="stageSelect" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-500">
-                                    <option value="initial">Initial / Emergence (Kc 0.4 - 0.6)</option>
-                                    <option value="mid" selected>Mid-Season / Peak Bulking (Kc 1.15 - 1.20)</option>
-                                    <option value="end">End-Season / Maturation (Kc 0.6 - 0.8)</option>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Growth Stage</label>
+                                <select id="stageSelect" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                                    <option value="initial">Early Stage (Young Plants)</option>
+                                    <option value="mid" selected>Mid Stage (Flowering / Bulking)</option>
+                                    <option value="end">Late Stage (Maturing)</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-medium text-slate-300 mb-1">Soil Texture Class</label>
-                                <select id="soilSelect" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-500">
-                                    <option value="sandy">Sandy Soil (Low Retention)</option>
-                                    <option value="loamy" selected>Loamy Soil (Optimal Retention)</option>
-                                    <option value="clay">Clay Soil (High Retention)</option>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Soil Type</label>
+                                <select id="soilSelect" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                                    <option value="sandy">Sandy Soil</option>
+                                    <option value="loamy" selected>Loamy Soil</option>
+                                    <option value="clay">Clay Soil</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-medium text-slate-300 mb-1">Field Surface Area (m²)</label>
-                                <input type="number" id="farmArea" value="1000" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-500 font-mono">
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Farm Area (m²)</label>
+                                <input type="number" id="farmArea" value="1000" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500 font-mono">
                             </div>
                         </div>
 
-                        <!-- Environmental Sliders -->
+                        <!-- Sliders -->
                         <div class="space-y-4 pt-2">
                             <div>
                                 <div class="flex justify-between text-xs mb-1">
-                                    <span class="text-slate-300 font-medium">Root-Zone Moisture Level</span>
+                                    <span class="text-slate-300">Current Soil Moisture</span>
                                     <span id="moistureVal" class="font-mono text-emerald-400 font-bold">35%</span>
                                 </div>
                                 <input type="range" id="moistureRange" min="5" max="95" value="35" class="w-full accent-emerald-500 cursor-pointer" oninput="updateSliders()">
@@ -221,14 +177,14 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <div class="flex justify-between text-xs mb-1">
-                                        <span class="text-slate-300 font-medium">Ambient Temperature</span>
+                                        <span class="text-slate-300">Temperature</span>
                                         <span id="tempVal" class="font-mono text-amber-400 font-bold">28.5 °C</span>
                                     </div>
                                     <input type="range" id="tempRange" min="15" max="45" step="0.5" value="28.5" class="w-full accent-amber-500 cursor-pointer" oninput="updateSliders()">
                                 </div>
                                 <div>
                                     <div class="flex justify-between text-xs mb-1">
-                                        <span class="text-slate-300 font-medium">Relative Humidity</span>
+                                        <span class="text-slate-300">Humidity</span>
                                         <span id="humidityVal" class="font-mono text-blue-400 font-bold">62%</span>
                                     </div>
                                     <input type="range" id="humidityRange" min="20" max="98" value="62" class="w-full accent-blue-500 cursor-pointer" oninput="updateSliders()">
@@ -237,220 +193,174 @@
 
                             <div>
                                 <div class="flex justify-between text-xs mb-1">
-                                    <span class="text-slate-300 font-medium">24h Rainfall Forecast</span>
+                                    <span class="text-slate-300">Expected Rain in next 24 Hours</span>
                                     <span id="rainVal" class="font-mono text-sky-400 font-bold">0.0 mm</span>
                                 </div>
                                 <input type="range" id="rainRange" min="0" max="40" step="0.5" value="0.0" class="w-full accent-sky-500 cursor-pointer" oninput="updateSliders()">
                             </div>
                         </div>
 
-                        <button onclick="calculateIrrigation()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 transition flex items-center justify-center space-x-2">
-                            <i data-lucide="cpu" class="w-4 h-4"></i>
-                            <span>Calculate Net Irrigation Requirement (NIR)</span>
+                        <button onclick="calculateIrrigation()" class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-900/30 transition flex items-center justify-center space-x-2">
+                            <i data-lucide="calculator" class="w-4 h-4"></i>
+                            <span>Calculate Irrigation Needs</span>
                         </button>
                     </div>
 
-                    <!-- Output & Insights Card -->
+                    <!-- Output Card -->
                     <div class="lg:col-span-5 space-y-5">
-                        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
                             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Advisory Outcome</span>
+                                <span class="text-xs font-semibold text-slate-400 uppercase">Recommendation</span>
                                 <span id="urgencyBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">MODERATE</span>
                             </div>
 
                             <div class="grid grid-cols-2 gap-3">
-                                <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800">
-                                    <p class="text-[11px] text-slate-400 uppercase font-semibold">Net Water Required</p>
+                                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                    <p class="text-[11px] text-slate-400 font-medium">Water Needed</p>
                                     <p id="waterRequiredText" class="text-2xl font-bold text-emerald-400 font-mono mt-1">3,200 L</p>
-                                    <p id="waterRateText" class="text-[10px] text-slate-500 mt-0.5">3.2 L per m²</p>
+                                    <p id="waterRateText" class="text-[10px] text-slate-500 mt-0.5">3.2 Liters per m²</p>
                                 </div>
-                                <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800">
-                                    <p class="text-[11px] text-slate-400 uppercase font-semibold">Water Conserved</p>
+                                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                    <p class="text-[11px] text-slate-400 font-medium">Water Saved</p>
                                     <p id="waterSavedText" class="text-2xl font-bold text-sky-400 font-mono mt-1">1,920 L</p>
-                                    <p id="waterSavedPctText" class="text-[10px] text-sky-400 font-medium mt-0.5">37.5% vs Flood Baseline</p>
+                                    <p id="waterSavedPctText" class="text-[10px] text-sky-400 font-medium mt-0.5">Saved vs Flood Irrigation</p>
                                 </div>
                             </div>
 
-                            <div class="bg-brand-950/30 border border-brand-500/20 rounded-xl p-4 space-y-2">
+                            <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-xs font-bold text-emerald-400 flex items-center space-x-1">
+                                    <span class="text-xs font-bold text-emerald-400 flex items-center space-x-1.5">
                                         <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                                        <span>AI Agronomist Directive</span>
+                                        <span>Action Plan</span>
                                     </span>
-                                    <button onclick="speakAdvice()" class="text-xs text-emerald-400 hover:text-emerald-300 flex items-center space-x-1 bg-emerald-500/10 px-2 py-0.5 rounded transition">
+                                    <button onclick="speakAdvice()" class="text-xs text-emerald-400 hover:text-emerald-300 flex items-center space-x-1 bg-emerald-500/10 px-2.5 py-1 rounded transition">
                                         <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-                                        <span>Voice Audio</span>
+                                        <span>Listen</span>
                                     </button>
                                 </div>
                                 <p id="adviceText" class="text-xs text-slate-300 leading-relaxed">
-                                    Click the calculation button to model optimal root-zone replenishment.
+                                    Click "Calculate Irrigation Needs" to get real-time recommendations.
                                 </p>
                             </div>
 
-                            <div class="pt-1 flex items-center justify-between text-xs text-slate-400">
-                                <span id="optimalWindowText" class="flex items-center space-x-1">
-                                    <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-400"></i>
-                                    <span>Optimal Window: 06:00 AM - 08:30 AM</span>
-                                </span>
-                                <span class="text-slate-500 font-mono text-[11px]">Saved in SQLite</span>
+                            <div class="flex items-center space-x-1.5 text-xs text-slate-400">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                <span id="optimalWindowText">Best Time: 06:00 AM - 08:30 AM</span>
                             </div>
-                        </div>
-
-                        <!-- Quick Link to Pathology -->
-                        <div class="gradient-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-brand-500/40 transition" onclick="switchTab('pathology')">
-                            <div class="space-y-0.5">
-                                <h4 class="text-xs font-bold text-white flex items-center space-x-1.5">
-                                    <i data-lucide="scan" class="w-3.5 h-3.5 text-emerald-400"></i>
-                                    <span>Check Foliage for Moisture Stress Blight</span>
-                                </h4>
-                                <p class="text-[11px] text-slate-400">Upload leaf photos to scan for foliar pathogens via Grad-CAM XAI</p>
-                            </div>
-                            <i data-lucide="arrow-right" class="w-4 h-4 text-emerald-400"></i>
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- ========================================== -->
-            <!-- TAB 2: FOLIAR PATHOLOGY & IMAGE UPLOAD (XAI) -->
-            <!-- ========================================== -->
+            <!-- TAB 2: CROP DISEASE SCANNER -->
             <div id="tab-pathology" class="hidden space-y-6">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-                    <!-- Left: Upload & Inspection Hub -->
-                    <div class="lg:col-span-6 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
-                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                            <div class="flex items-center space-x-2.5">
-                                <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
-                                    <i data-lucide="upload-cloud" class="w-5 h-5"></i>
+                    <!-- Left: Upload Photo -->
+                    <div class="lg:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+                        <div class="border-b border-slate-800 pb-3 flex items-center space-x-2">
+                            <i data-lucide="camera" class="w-4 h-4 text-emerald-400"></i>
+                            <h2 class="font-bold text-slate-100 text-sm">Upload Plant Leaf Photo</h2>
+                        </div>
+
+                        <!-- Upload Dropzone -->
+                        <label for="leafFileInput" class="block cursor-pointer">
+                            <div class="border-2 border-dashed border-emerald-500/40 hover:border-emerald-400 rounded-2xl p-8 text-center transition bg-slate-950/60 hover:bg-emerald-950/10 flex flex-col items-center justify-center space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                                    <i data-lucide="upload" class="w-6 h-6"></i>
                                 </div>
-                                <div>
-                                    <h2 class="font-bold text-slate-100 text-sm">Foliar Image Acquisition Hub</h2>
-                                    <p class="text-xs text-slate-400">Upload or select high-resolution crop leaves</p>
+                                <div class="space-y-1">
+                                    <p class="text-sm font-semibold text-slate-200">
+                                        <span class="text-emerald-400 underline">Click to choose a photo</span> or drag here
+                                    </p>
+                                    <p class="text-xs text-slate-400">PNG, JPG, or WEBP photo of a crop leaf</p>
                                 </div>
+                                <span id="fileNameLabel" class="inline-block px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-emerald-400 border border-slate-700">
+                                    No file selected
+                                </span>
                             </div>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">MobileNetV3 + XAI</span>
-                        </div>
+                            <input type="file" id="leafFileInput" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
+                        </label>
 
-                        <!-- PROMINENT DRAG AND DROP UPLOAD ZONE -->
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-2">Upload Crop Leaf Photo:</label>
-                            <label for="leafFileInput" class="relative group cursor-pointer block">
-                                <div class="border-2 border-dashed border-emerald-500/40 group-hover:border-emerald-400 rounded-2xl p-8 text-center transition bg-slate-950/60 group-hover:bg-emerald-950/10 flex flex-col items-center justify-center space-y-3">
-                                    <div class="w-12 h-12 rounded-full bg-emerald-500/10 group-hover:bg-emerald-500/20 text-emerald-400 flex items-center justify-center transition">
-                                        <i data-lucide="image-plus" class="w-6 h-6"></i>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <p class="text-sm font-semibold text-slate-200">
-                                            <span class="text-brand-400 underline">Click to upload</span> or drag and drop image here
-                                        </p>
-                                        <p class="text-xs text-slate-400">Supports PNG, JPG, JPEG, WEBP (Max 15MB)</p>
-                                    </div>
-                                    <span id="fileNameLabel" class="inline-block px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-emerald-400 border border-slate-700">
-                                        No file chosen yet
-                                    </span>
-                                </div>
-                                <input type="file" id="leafFileInput" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
-                            </label>
-                        </div>
-
-                        <!-- Or Choose Curated Sample Buttons -->
+                        <!-- Sample Photos -->
                         <div class="space-y-2">
-                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Or Test With Curated Pathogen Samples:</span>
+                            <span class="text-xs font-medium text-slate-400">Or test with ready samples:</span>
                             <div class="grid grid-cols-3 gap-2.5">
-                                <button onclick="selectSampleLeaf('tomato_early_blight')" class="p-3 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-left transition group">
-                                    <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Tomato</p>
-                                    <p class="text-[10px] text-amber-400 font-mono mt-0.5">Early Blight</p>
+                                <button onclick="selectSampleLeaf('tomato_early_blight')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-left transition">
+                                    <p class="text-xs font-bold text-slate-200">Tomato</p>
+                                    <p class="text-[11px] text-amber-400 mt-0.5">Early Blight</p>
                                 </button>
-                                <button onclick="selectSampleLeaf('maize_rust')" class="p-3 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-left transition group">
-                                    <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Maize</p>
-                                    <p class="text-[10px] text-amber-400 font-mono mt-0.5">Common Rust</p>
+                                <button onclick="selectSampleLeaf('maize_rust')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-left transition">
+                                    <p class="text-xs font-bold text-slate-200">Maize</p>
+                                    <p class="text-[11px] text-amber-400 mt-0.5">Leaf Rust</p>
                                 </button>
-                                <button onclick="selectSampleLeaf('tomato_healthy')" class="p-3 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-left transition group">
-                                    <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Tomato</p>
-                                    <p class="text-[10px] text-emerald-400 font-mono mt-0.5">Healthy Foliage</p>
+                                <button onclick="selectSampleLeaf('tomato_healthy')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-left transition">
+                                    <p class="text-xs font-bold text-slate-200">Tomato</p>
+                                    <p class="text-[11px] text-emerald-400 mt-0.5">Healthy Leaf</p>
                                 </button>
                             </div>
                         </div>
 
-                        <button onclick="runLeafScan()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 transition flex items-center justify-center space-x-2">
+                        <button onclick="runLeafScan()" class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-900/30 transition flex items-center justify-center space-x-2">
                             <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            <span>Execute Deep AI Diagnostic & Grad-CAM Scan</span>
+                            <span>Scan Leaf Now</span>
                         </button>
                     </div>
 
-                    <!-- Right: Live Image & Grad-CAM Inspection Viewer -->
+                    <!-- Right: Diagnostic Results -->
                     <div class="lg:col-span-6 space-y-5">
-                        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
                             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                                <div>
-                                    <h3 class="font-bold text-slate-100 text-sm">Visual Attention Heatmap (Grad-CAM)</h3>
-                                    <p class="text-xs text-slate-400">Real-time neural saliency highlighting foliar necrosis</p>
-                                </div>
+                                <h3 class="font-bold text-slate-100 text-sm">Diagnosis & Treatment</h3>
                                 <div class="flex space-x-1 bg-slate-950 p-1 rounded-lg border border-slate-700">
-                                    <button id="btnToggleHeatmap" onclick="toggleHeatmap(true)" class="px-2.5 py-1 text-[11px] font-bold rounded bg-brand-500 text-white">Grad-CAM XAI</button>
-                                    <button id="btnToggleRaw" onclick="toggleHeatmap(false)" class="px-2.5 py-1 text-[11px] font-bold rounded text-slate-400 hover:text-white">Raw Leaf</button>
+                                    <button id="btnToggleHeatmap" onclick="toggleHeatmap(true)" class="px-2.5 py-1 text-xs font-medium rounded bg-emerald-600 text-white">Heatmap View</button>
+                                    <button id="btnToggleRaw" onclick="toggleHeatmap(false)" class="px-2.5 py-1 text-xs font-medium rounded text-slate-400 hover:text-white">Normal Photo</button>
                                 </div>
                             </div>
 
-                            <!-- Live Visual Canvas Display Container -->
-                            <div class="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 h-64 flex items-center justify-center">
-                                <!-- Actual User Uploaded Image Preview (If file chosen) -->
-                                <img id="uploadedImagePreview" class="hidden absolute inset-0 w-full h-full object-contain p-2" src="" alt="Uploaded Leaf Preview">
-
-                                <!-- Fallback SVG Synthetic Leaf -->
-                                <div id="leafVisualBox" class="absolute inset-0 flex items-center justify-center p-4">
-                                    <svg class="w-56 h-56 text-emerald-800/60" viewBox="0 0 100 100" fill="currentColor">
-                                        <path d="M50 10 C30 20 15 45 25 75 C30 90 45 95 50 95 C55 95 70 90 75 75 C85 45 70 20 50 10 Z"/>
-                                        <path d="M50 15 L50 90" stroke="rgba(16, 185, 129, 0.4)" stroke-width="2"/>
-                                        <path d="M50 35 L30 45" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1.5"/>
-                                        <path d="M50 50 L70 60" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1.5"/>
-                                        <path d="M50 65 L35 75" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1.5"/>
-                                    </svg>
+                            <!-- Image Preview Frame -->
+                            <div class="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 h-56 flex items-center justify-center">
+                                <img id="uploadedImagePreview" class="hidden absolute inset-0 w-full h-full object-contain p-2" src="" alt="Leaf">
+                                <div id="emptyImagePrompt" class="text-center p-4 text-slate-500 text-xs">
+                                    <i data-lucide="image" class="w-8 h-8 mx-auto mb-2 text-slate-600"></i>
+                                    <span>Upload a photo or click a sample to see results</span>
                                 </div>
-
-                                <!-- Grad-CAM Heatmap Overlay Layer -->
-                                <div id="gradCamOverlay" class="absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-90"></div>
-
-                                <!-- Target Layer Badge -->
-                                <div class="absolute top-3 left-3 z-10 bg-slate-900/90 backdrop-blur-md px-2.5 py-1 rounded-md border border-slate-700 flex items-center space-x-1.5">
-                                    <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                                    <span class="text-[10px] font-mono text-slate-300">Target Layer: conv5_block3_out</span>
-                                </div>
+                                <div id="gradCamOverlay" class="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-90"></div>
                             </div>
 
-                            <!-- Diagnostic Outcome Box -->
-                            <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
+                            <!-- Diagnosis Info -->
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
                                 <div class="flex items-center justify-between">
                                     <div>
                                         <h4 id="diseaseTitle" class="font-bold text-slate-100 text-sm">Early Blight (Alternaria solani)</h4>
-                                        <p id="diseaseSubtitle" class="text-xs text-emerald-400 font-medium">Foliar Target Spot & Leaf Blight (Tomato)</p>
+                                        <p id="diseaseSubtitle" class="text-xs text-emerald-400 font-medium">Tomato</p>
                                     </div>
                                     <div class="text-right">
                                         <span id="confidenceBadge" class="text-base font-bold font-mono text-emerald-400">97.8%</span>
-                                        <p class="text-[10px] text-slate-400">Model Confidence</p>
+                                        <p class="text-[10px] text-slate-400">Accuracy</p>
                                     </div>
                                 </div>
 
-                                <div class="space-y-2 pt-2 border-t border-slate-800">
+                                <div class="space-y-2 pt-2 border-t border-slate-800 text-xs">
                                     <div>
-                                        <span class="text-xs font-semibold text-emerald-400 flex items-center space-x-1">
+                                        <span class="font-semibold text-emerald-400 flex items-center space-x-1">
                                             <i data-lucide="leaf" class="w-3.5 h-3.5"></i>
-                                            <span>Eco-Friendly Organic Protocol (Green Planet):</span>
+                                            <span>Natural Treatment (Organic):</span>
                                         </span>
-                                        <ul id="organicTreatmentList" class="text-xs text-slate-300 list-disc list-inside mt-1 space-y-1">
-                                            <li>Apply cold-pressed Neem Oil extract (2 tbsp / 1 Liter water) every 7 days.</li>
-                                            <li>Prune lower canopy leaves within 30cm of the soil surface.</li>
+                                        <ul id="organicTreatmentList" class="text-slate-300 list-disc list-inside mt-1 space-y-1">
+                                            <li>Spray cold-pressed Neem Oil extract (2 tablespoons per 1 Liter water) once every 7 days.</li>
+                                            <li>Prune bottom leaves close to the soil to prevent splashing.</li>
                                         </ul>
                                     </div>
+
                                     <div class="pt-1">
-                                        <span class="text-xs font-semibold text-amber-400 flex items-center space-x-1">
+                                        <span class="font-semibold text-amber-400 flex items-center space-x-1">
                                             <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
-                                            <span>Precision Irrigation Adjustment (GP-02 Link):</span>
+                                            <span>Watering Advice:</span>
                                         </span>
-                                        <p id="irrigationAdjustmentText" class="text-xs text-slate-300 mt-0.5">
-                                            Discontinue overhead sprinkler irrigation. Transition to drip irrigation to keep canopy foliage dry.
+                                        <p id="irrigationAdjustmentText" class="text-slate-300 mt-0.5">
+                                            Water roots directly (drip irrigation). Avoid spraying water on the leaves.
                                         </p>
                                     </div>
                                 </div>
@@ -462,43 +372,36 @@
                 </div>
             </div>
 
-            <!-- ========================================== -->
-            <!-- TAB 3: TELEMETRY & PERSISTENT LOGS (SQLITE)-->
-            <!-- ========================================== -->
+            <!-- TAB 3: FARM RECORDS -->
             <div id="tab-telemetry" class="hidden space-y-6">
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-2.5">
-                            <div class="p-2 rounded-lg bg-brand-500/10 text-brand-400">
-                                <i data-lucide="database" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h2 class="font-bold text-slate-100 text-sm">Persistent SQLite Telemetry Audit Trail</h2>
-                                <p class="text-xs text-slate-400">Historical records of farm irrigation calculations and pathology diagnoses</p>
-                            </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="history" class="w-4 h-4 text-emerald-400"></i>
+                            <h2 class="font-bold text-slate-100 text-sm">Saved Farm Records</h2>
                         </div>
-                        <button onclick="fetchHistory()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 transition flex items-center space-x-1 border border-slate-700">
+                        <button onclick="fetchHistory()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 transition flex items-center space-x-1">
                             <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
-                            <span>Refresh Logs</span>
+                            <span>Refresh</span>
                         </button>
                     </div>
 
                     <div class="overflow-x-auto rounded-xl border border-slate-800">
                         <table class="w-full text-left text-xs">
-                            <thead class="bg-slate-950/80 text-slate-400 border-b border-slate-800 font-mono">
+                            <thead class="bg-slate-950 text-slate-400 border-b border-slate-800 font-mono">
                                 <tr>
-                                    <th class="py-3 px-4">Log ID</th>
+                                    <th class="py-3 px-4">#</th>
                                     <th class="py-3 px-4">Crop</th>
                                     <th class="py-3 px-4">Soil Moisture</th>
-                                    <th class="py-3 px-4">Net Water Required</th>
-                                    <th class="py-3 px-4">Water Conserved</th>
-                                    <th class="py-3 px-4">Urgency Assessment</th>
-                                    <th class="py-3 px-4">Timestamp</th>
+                                    <th class="py-3 px-4">Water Needed</th>
+                                    <th class="py-3 px-4">Water Saved</th>
+                                    <th class="py-3 px-4">Status</th>
+                                    <th class="py-3 px-4">Date</th>
                                 </tr>
                             </thead>
                             <tbody id="historyTableBody" class="divide-y divide-slate-800 text-slate-300 font-mono">
                                 <tr>
-                                    <td colspan="7" class="py-4 text-center text-slate-500">Querying SQLite database...</td>
+                                    <td colspan="7" class="py-4 text-center text-slate-500">Loading records...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -506,106 +409,27 @@
                 </div>
             </div>
 
-            <!-- ========================================== -->
-            <!-- TAB 4: MODEL EVALUATION & BENCHMARKS (CTO/PM)-->
-            <!-- ========================================== -->
-            <div id="tab-benchmarks" class="hidden space-y-6">
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
-                    <div class="border-b border-slate-800 pb-4">
-                        <div class="flex items-center space-x-2.5">
-                            <div class="p-2 rounded-lg bg-brand-500/10 text-brand-400">
-                                <i data-lucide="award" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h2 class="font-bold text-slate-100 text-base">Model Accuracy & Technical Evaluation Benchmarks</h2>
-                                <p class="text-xs text-slate-400">Satisfies 100% of the 35% Technical Implementation criteria (Neural Storm 2026)</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Benchmark 1 -->
-                        <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
-                            <h3 class="font-bold text-emerald-400 text-sm">1. Precision Irrigation Regression Engine (GP-02)</h3>
-                            <p class="text-xs text-slate-300">Architecture: <span class="font-mono text-slate-200">FAO-56 Penman-Monteith Integrated Regressor (Random Forest / XGBoost)</span></p>
-                            <p class="text-xs text-slate-400">Dataset: 5,000 agro-climatic telemetry points across 6 crop types.</p>
-                            
-                            <div class="grid grid-cols-3 gap-3 font-mono text-center pt-2">
-                                <div class="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                                    <p class="text-slate-400 text-[10px]">R² Score</p>
-                                    <p class="text-emerald-400 font-bold text-lg">0.942</p>
-                                </div>
-                                <div class="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                                    <p class="text-slate-400 text-[10px]">MAE (Mean Error)</p>
-                                    <p class="text-emerald-400 font-bold text-lg">0.124 L/m²</p>
-                                </div>
-                                <div class="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                                    <p class="text-slate-400 text-[10px]">Water Saved</p>
-                                    <p class="text-sky-400 font-bold text-lg">38.6%</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Benchmark 2 -->
-                        <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
-                            <h3 class="font-bold text-emerald-400 text-sm">2. Foliar Pathology Vision & Grad-CAM XAI</h3>
-                            <p class="text-xs text-slate-300">Architecture: <span class="font-mono text-slate-200">MobileNetV3 Deep Feature Maps + Grad-CAM Saliency Layers</span></p>
-                            <p class="text-xs text-slate-400">Dataset: 12,400 curated foliar images across healthy and diseased conditions.</p>
-
-                            <div class="grid grid-cols-4 gap-2 font-mono text-center pt-2">
-                                <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
-                                    <p class="text-slate-400 text-[10px]">Test Acc</p>
-                                    <p class="text-emerald-400 font-bold text-base">96.8%</p>
-                                </div>
-                                <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
-                                    <p class="text-slate-400 text-[10px]">F1-Score</p>
-                                    <p class="text-emerald-400 font-bold text-base">0.967</p>
-                                </div>
-                                <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
-                                    <p class="text-slate-400 text-[10px]">XAI Fidelity</p>
-                                    <p class="text-amber-400 font-bold text-base">92.3%</p>
-                                </div>
-                                <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
-                                    <p class="text-slate-400 text-[10px]">Latency</p>
-                                    <p class="text-purple-400 font-bold text-base">28.4ms</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </main>
     </div>
 
-    <!-- Frontend Script Logic -->
     <script>
         lucide.createIcons();
-        let currentDiagnosis = null;
-        let showHeatmap = true;
-        let activeTab = 'irrigation';
 
         function switchTab(tabId) {
-            activeTab = tabId;
-            const tabs = ['irrigation', 'pathology', 'telemetry', 'benchmarks'];
-            tabs.forEach(t => {
+            ['irrigation', 'pathology', 'telemetry'].forEach(t => {
                 document.getElementById('tab-' + t).classList.add('hidden');
-                const navBtn = document.getElementById('nav-' + t);
-                navBtn.className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent transition";
+                document.getElementById('nav-' + t).className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent transition";
             });
 
             document.getElementById('tab-' + tabId).classList.remove('hidden');
-            const activeNav = document.getElementById('nav-' + tabId);
-            activeNav.className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition bg-brand-500/10 text-brand-400 border border-brand-500/30 shadow-sm";
+            document.getElementById('nav-' + tabId).className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition bg-emerald-500/10 text-emerald-400 border border-emerald-500/30";
 
-            // Update Header Title
             const titles = {
-                'irrigation': { title: 'Precision Irrigation Advisory Engine', sub: 'FAO-56 Penman-Monteith Evapotranspiration energy balance modeling' },
-                'pathology': { title: 'Foliar Pathology & Explainable AI (Grad-CAM)', sub: 'Upload leaf imagery to detect foliar necrotic lesions and get organic treatment plans' },
-                'telemetry': { title: 'Persistent SQLite Telemetry Audit Trail', sub: 'Zero-config persistent storage query of all calculations and diagnoses' },
-                'benchmarks': { title: 'AI Model Accuracy & Performance Benchmarks', sub: 'Verified empirical metrics satisfying 35% Technical Implementation criteria' }
+                'irrigation': { title: 'Irrigation Planner', sub: 'Calculate exact water required for your crops based on soil and weather' },
+                'pathology': { title: 'Crop Disease Scanner', sub: 'Diagnose crop diseases from leaf photos and get organic treatment plans' },
+                'telemetry': { title: 'Farm Records & History', sub: 'Review saved irrigation plans and diagnostic records' }
             };
-            document.getElementById('viewTitle').innerHTML = `<span>${titles[tabId].title}</span>`;
+            document.getElementById('viewTitle').innerText = titles[tabId].title;
             document.getElementById('viewSubtitle').innerText = titles[tabId].sub;
 
             if (tabId === 'telemetry') {
@@ -640,11 +464,8 @@
                 });
                 const data = await res.json();
 
-                // Update UI with calculated data
                 document.getElementById('urgencyBadge').innerText = data.urgency;
-                if (data.urgency === 'CRITICAL') {
-                    document.getElementById('urgencyBadge').className = "px-3 py-1 rounded-full text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/40";
-                } else if (data.urgency === 'URGENT') {
+                if (data.urgency === 'CRITICAL' || data.urgency === 'URGENT') {
                     document.getElementById('urgencyBadge').className = "px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/40";
                 } else if (data.urgency === 'SKIP_RAIN_EXPECTED') {
                     document.getElementById('urgencyBadge').className = "px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-400 border border-blue-500/40";
@@ -653,24 +474,22 @@
                 }
 
                 document.getElementById('waterRequiredText').innerText = data.total_water_liters_needed.toLocaleString() + ' L';
-                document.getElementById('waterRateText').innerText = data.recommended_volume_liters_per_m2 + ' L per m²';
+                document.getElementById('waterRateText').innerText = data.recommended_volume_liters_per_m2 + ' Liters per m²';
                 document.getElementById('waterSavedText').innerText = data.water_saved_liters.toLocaleString() + ' L';
-                document.getElementById('waterSavedPctText').innerText = data.water_savings_pct + '% vs traditional flood baseline';
+                document.getElementById('waterSavedPctText').innerText = data.water_savings_pct + '% Saved vs Flood Irrigation';
                 document.getElementById('adviceText').innerText = data.ai_advisory || data.swahili_advice;
-                document.getElementById('optimalWindowText').innerHTML = `<i data-lucide="clock" class="w-3.5 h-3.5 text-brand-400 inline"></i> <span>Optimal Window: ${data.optimal_window}</span>`;
-                lucide.createIcons();
+                document.getElementById('optimalWindowText').innerText = 'Best Time: ' + data.optimal_window;
 
                 fetchHistory();
             } catch (err) {
-                console.error("Irrigation Calculation Error:", err);
+                console.error("Irrigation Error:", err);
             }
         }
 
         async function selectSampleLeaf(sampleType) {
-            document.getElementById('fileNameLabel').innerText = "Sample: " + sampleType + ".jpg";
-            // Hide uploaded image preview to show synthetic sample leaf
+            document.getElementById('fileNameLabel').innerText = sampleType.replace('_', ' ') + '.jpg';
+            document.getElementById('emptyImagePrompt').classList.add('hidden');
             document.getElementById('uploadedImagePreview').classList.add('hidden');
-            document.getElementById('leafVisualBox').classList.remove('hidden');
             await performLeafScan(sampleType);
         }
 
@@ -679,11 +498,10 @@
                 const file = e.target.files[0];
                 document.getElementById('fileNameLabel').innerText = file.name;
                 
-                // Show uploaded image in preview container
                 const imgPreview = document.getElementById('uploadedImagePreview');
                 imgPreview.src = URL.createObjectURL(file);
                 imgPreview.classList.remove('hidden');
-                document.getElementById('leafVisualBox').classList.add('hidden');
+                document.getElementById('emptyImagePrompt').classList.add('hidden');
 
                 performLeafScan(file.name);
             }
@@ -691,27 +509,24 @@
 
         function runLeafScan() {
             const currentLabel = document.getElementById('fileNameLabel').innerText;
+            if (currentLabel === 'No file selected') {
+                selectSampleLeaf('tomato_early_blight');
+                return;
+            }
             performLeafScan(currentLabel);
         }
 
         async function performLeafScan(nameHint) {
-            const payload = {
-                filename_hint: nameHint,
-                farm_id: null
-            };
-
             try {
                 const res = await fetch('/api/pathology/scan', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify({ filename_hint: nameHint })
                 });
                 const data = await res.json();
-                currentDiagnosis = data;
 
-                // Update UI elements
                 document.getElementById('diseaseTitle').innerText = data.diagnosis.disease_name;
-                document.getElementById('diseaseSubtitle').innerText = `${data.diagnosis.common_name || data.diagnosis.swahili_name} (${data.diagnosis.crop})`;
+                document.getElementById('diseaseSubtitle').innerText = data.diagnosis.crop;
                 document.getElementById('confidenceBadge').innerText = data.diagnosis.confidence_pct + '%';
                 document.getElementById('irrigationAdjustmentText').innerText = data.diagnosis.irrigation_adjustment;
 
@@ -723,11 +538,10 @@
                     orgList.appendChild(li);
                 });
 
-                // Render Grad-CAM Heatmap Blobs
                 renderGradCam(data.explainable_ai);
                 fetchHistory();
             } catch (err) {
-                console.error("Leaf Scan Error:", err);
+                console.error("Scan Error:", err);
             }
         }
 
@@ -755,7 +569,7 @@
 
                 const stop3 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
                 stop3.setAttribute("offset", "100%");
-                stop3.setAttribute("stop-color", spot.color_stop_outer);
+                stop3.setAttribute("stop-color", "rgba(0,0,0,0)");
 
                 radGrad.appendChild(stop1);
                 radGrad.appendChild(stop2);
@@ -776,19 +590,18 @@
         }
 
         function toggleHeatmap(show) {
-            showHeatmap = show;
             const overlay = document.getElementById('gradCamOverlay');
             const btnHeat = document.getElementById('btnToggleHeatmap');
             const btnRaw = document.getElementById('btnToggleRaw');
 
             if (show) {
                 overlay.style.opacity = '0.9';
-                btnHeat.className = "px-2.5 py-1 text-[11px] font-bold rounded bg-brand-500 text-white";
-                btnRaw.className = "px-2.5 py-1 text-[11px] font-bold rounded text-slate-400 hover:text-white";
+                btnHeat.className = "px-2.5 py-1 text-xs font-medium rounded bg-emerald-600 text-white";
+                btnRaw.className = "px-2.5 py-1 text-xs font-medium rounded text-slate-400 hover:text-white";
             } else {
                 overlay.style.opacity = '0.0';
-                btnRaw.className = "px-2.5 py-1 text-[11px] font-bold rounded bg-slate-700 text-white";
-                btnHeat.className = "px-2.5 py-1 text-[11px] font-bold rounded text-slate-400 hover:text-white";
+                btnRaw.className = "px-2.5 py-1 text-xs font-medium rounded bg-slate-700 text-white";
+                btnHeat.className = "px-2.5 py-1 text-xs font-medium rounded text-slate-400 hover:text-white";
             }
         }
 
@@ -800,7 +613,7 @@
                 tbody.innerHTML = '';
 
                 if (!data.irrigation_history || data.irrigation_history.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-slate-500">No records stored yet.</td></tr>`;
+                    tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-slate-500">No records saved yet.</td></tr>`;
                     return;
                 }
 
@@ -814,7 +627,7 @@
                         <td class="py-3 px-4 text-emerald-400 font-bold">${item.recommended_volume_liters.toLocaleString()} L</td>
                         <td class="py-3 px-4 text-sky-400 font-bold">${item.water_saved_liters.toLocaleString()} L</td>
                         <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300 border border-slate-700">${item.urgency}</span></td>
-                        <td class="py-3 px-4 text-slate-500">${item.created_at || 'Just now'}</td>
+                        <td class="py-3 px-4 text-slate-500">${item.created_at || 'Today'}</td>
                     `;
                     tbody.appendChild(tr);
                 });
@@ -823,32 +636,22 @@
             }
         }
 
-        function loadPreset(presetId) {
+        function loadScenario(type) {
             switchTab('irrigation');
-            if (presetId === 'scenario_1') {
+            if (type === 'dry') {
                 document.getElementById('cropSelect').value = 'maize';
                 document.getElementById('soilSelect').value = 'sandy';
                 document.getElementById('moistureRange').value = 18;
                 document.getElementById('tempRange').value = 32.0;
                 document.getElementById('humidityRange').value = 38;
                 document.getElementById('rainRange').value = 0.0;
-                document.getElementById('farmArea').value = 2500;
-            } else if (presetId === 'scenario_2') {
+            } else if (type === 'rain') {
                 document.getElementById('cropSelect').value = 'tomato';
                 document.getElementById('soilSelect').value = 'loamy';
                 document.getElementById('moistureRange').value = 55;
                 document.getElementById('tempRange').value = 24.0;
                 document.getElementById('humidityRange').value = 78;
                 document.getElementById('rainRange').value = 15.0;
-                document.getElementById('farmArea').value = 1000;
-            } else if (presetId === 'scenario_3') {
-                document.getElementById('cropSelect').value = 'potato';
-                document.getElementById('soilSelect').value = 'clay';
-                document.getElementById('moistureRange').value = 36;
-                document.getElementById('tempRange').value = 26.5;
-                document.getElementById('humidityRange').value = 60;
-                document.getElementById('rainRange').value = 0.0;
-                document.getElementById('farmArea').value = 1500;
             }
             updateSliders();
             calculateIrrigation();
@@ -866,7 +669,6 @@
             }
         }
 
-        // Initialize on load
         window.onload = () => {
             updateSliders();
             calculateIrrigation();
