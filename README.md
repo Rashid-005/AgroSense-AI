@@ -106,8 +106,8 @@ NeuralStorm AI is engineered for **Zero Friction**. It requires no external data
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/NeuralStorm.git
-   cd NeuralStorm
+   git clone https://github.com/Rashid-005/AgroSense-AI.git
+   cd AgroSense-AI
    ```
 
 2. **Install requirements:**
@@ -162,5 +162,5 @@ In strict accordance with Neural Storm 2026 rules:
 * **Project Title:** AgroSense AI
 * **Problem Statement:** `GP-02: AI-Based Precision Irrigation Advisory`
 * **Track:** Track 2: Green Planet
-* **Developer / Team:** [Mr Silence / Team AgroSense]
+* **Developer / Team:** Rashid-005 (@Rashid-005) / Team AgroSense
 * **Hackathon:** Neural Storm 2026 (Devpost)
