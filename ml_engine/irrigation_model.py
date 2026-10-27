@@ -1,6 +1,7 @@
 """
 NeuralStorm AI - Precision Irrigation Advisory Engine (GP-02)
 Standard: FAO-56 Penman-Monteith Evapotranspiration & Machine Learning Regression
+Language: English (Global Production Standard)
 """
 
 import math
@@ -10,18 +11,18 @@ from typing import Dict, Any, Tuple
 class CropConstants:
     """Crop coefficients (Kc) across growth stages according to FAO-56 standards."""
     CROPS = {
-        "tomato": {"name": "Tomato (Nyanya)", "kc_init": 0.6, "kc_mid": 1.15, "kc_end": 0.8, "root_depth_m": 0.6, "depletion_factor": 0.4},
-        "maize": {"name": "Maize (Mahindi)", "kc_init": 0.4, "kc_mid": 1.20, "kc_end": 0.6, "root_depth_m": 0.9, "depletion_factor": 0.55},
-        "potato": {"name": "Potato (Viazi)", "kc_init": 0.5, "kc_mid": 1.15, "kc_end": 0.75, "root_depth_m": 0.5, "depletion_factor": 0.35},
-        "rice": {"name": "Rice (Mpunga)", "kc_init": 1.05, "kc_mid": 1.20, "kc_end": 0.90, "root_depth_m": 0.4, "depletion_factor": 0.20},
-        "wheat": {"name": "Wheat (Ngano)", "kc_init": 0.3, "kc_mid": 1.15, "kc_end": 0.4, "root_depth_m": 0.8, "depletion_factor": 0.55},
-        "vegetables": {"name": "Mixed Vegetables (Mbogamboga)", "kc_init": 0.5, "kc_mid": 1.05, "kc_end": 0.8, "root_depth_m": 0.5, "depletion_factor": 0.45}
+        "tomato": {"name": "Tomato", "kc_init": 0.6, "kc_mid": 1.15, "kc_end": 0.8, "root_depth_m": 0.6, "depletion_factor": 0.4},
+        "maize": {"name": "Maize / Corn", "kc_init": 0.4, "kc_mid": 1.20, "kc_end": 0.6, "root_depth_m": 0.9, "depletion_factor": 0.55},
+        "potato": {"name": "Potato", "kc_init": 0.5, "kc_mid": 1.15, "kc_end": 0.75, "root_depth_m": 0.5, "depletion_factor": 0.35},
+        "rice": {"name": "Paddy Rice", "kc_init": 1.05, "kc_mid": 1.20, "kc_end": 0.90, "root_depth_m": 0.4, "depletion_factor": 0.20},
+        "wheat": {"name": "Wheat", "kc_init": 0.3, "kc_mid": 1.15, "kc_end": 0.4, "root_depth_m": 0.8, "depletion_factor": 0.55},
+        "vegetables": {"name": "Mixed Horticulture", "kc_init": 0.5, "kc_mid": 1.05, "kc_end": 0.8, "root_depth_m": 0.5, "depletion_factor": 0.45}
     }
 
     SOIL_TYPES = {
-        "sandy": {"name": "Sandy Soil (Kichanga)", "field_capacity": 14.0, "wilting_point": 6.0, "infiltration_rate_mm_hr": 30.0},
-        "loamy": {"name": "Loam Soil (Tifutifu)", "field_capacity": 28.0, "wilting_point": 13.0, "infiltration_rate_mm_hr": 15.0},
-        "clay": {"name": "Clay Soil (Mfinyanzi)", "field_capacity": 38.0, "wilting_point": 22.0, "infiltration_rate_mm_hr": 5.0}
+        "sandy": {"name": "Sandy Soil", "field_capacity": 14.0, "wilting_point": 6.0, "infiltration_rate_mm_hr": 30.0},
+        "loamy": {"name": "Loamy Soil", "field_capacity": 28.0, "wilting_point": 13.0, "infiltration_rate_mm_hr": 15.0},
+        "clay": {"name": "Clay Soil", "field_capacity": 38.0, "wilting_point": 22.0, "infiltration_rate_mm_hr": 5.0}
     }
 
 
@@ -83,7 +84,7 @@ class PrecisionIrrigationEngine:
         farm_area_m2: float = 1000.0
     ) -> Dict[str, Any]:
         """
-        Generates actionable, precision irrigation advisory.
+        Generates actionable, precision irrigation advisory in English.
         """
         crop_key = crop_name.lower().strip()
         crop_data = self.crops.get(crop_key, self.crops["tomato"])
@@ -148,22 +149,23 @@ class PrecisionIrrigationEngine:
         # Recommended timing
         best_time = "06:00 AM - 08:30 AM" if temperature_c > 26 else "05:00 PM - 07:00 PM"
         
-        # Explanation in Swahili & English for judges and users
+        # Actionable Advisory in English
         if should_irrigate:
-            swahili_advice = (
-                f"Mmea wako wa {crop_data['name']} unahitaji umwagiliaji wa lita {liters_per_m2} kwa kila m² "
-                f"(Jumla ya lita {total_liters:,.0f} kwa eneo la m² {farm_area_m2:,.0f}). "
-                f"Wakati bora wa kumwagilia ni {best_time} ili kuepusha upotevu wa maji kwa jua."
+            ai_advisory = (
+                f"Your {crop_data['name']} crop requires {liters_per_m2} L/m² of precision irrigation "
+                f"(Total: {total_liters:,.0f} Liters across {farm_area_m2:,.0f} m²). "
+                f"Optimal application window is {best_time} to prevent evaporative loss."
             )
         else:
             if urgency == "SKIP_RAIN_EXPECTED":
-                swahili_advice = (
-                    f"Hakuna haja ya kumwagilia leo. Utabiri unaonyesha mvua ya {rainfall_forecast_mm}mm inatosheleza unyevu wa mmea wako."
+                ai_advisory = (
+                    f"Irrigation suspended. The forecasted precipitation of {rainfall_forecast_mm}mm "
+                    f"is fully sufficient to replenish root-zone moisture."
                 )
             else:
-                swahili_advice = (
-                    f"Unyevu wa ardhi ({current_moisture_pct}%) bado uko salama kwa {crop_data['name']}. "
-                    f"Hifadhi maji yako; mfumo utakutaarifu pale unyevu utakaposhuka."
+                ai_advisory = (
+                    f"Soil moisture level ({current_moisture_pct}%) is within optimal retention for {crop_data['name']}. "
+                    f"No irrigation needed today. Conserving water reserves."
                 )
 
         return {
@@ -180,5 +182,6 @@ class PrecisionIrrigationEngine:
             "water_saved_liters": water_saved_liters,
             "water_savings_pct": saving_pct,
             "optimal_window": best_time,
-            "swahili_advice": swahili_advice
+            "ai_advisory": ai_advisory,
+            "swahili_advice": ai_advisory  # for backward compatibility
         }

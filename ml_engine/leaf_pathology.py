@@ -1,6 +1,7 @@
 """
 NeuralStorm AI - Leaf Pathology & Crop Disease Intelligence (GP-02 Companion)
 Detects crop diseases related to moisture excess/drought stress and generates actionable organic/chemical treatments.
+Language: English (Global Production Standard)
 """
 
 from typing import Dict, Any, List
@@ -11,90 +12,90 @@ import os
 class CropDiseaseRegistry:
     DISEASES = {
         "tomato_early_blight": {
-            "crop": "Tomato (Nyanya)",
+            "crop": "Tomato",
             "disease_name": "Early Blight (Alternaria solani)",
-            "swahili_name": "Bakajani la Mapema",
-            "cause": "Unyevu wa hewa uliopitiliza na kumwagilia majani badala ya mizizi.",
+            "common_name": "Foliar Target Spot & Leaf Blight",
+            "cause": "Prolonged leaf wetness combined with overhead sprinkler irrigation splashing spores onto lower foliage.",
             "severity": "Moderate to High",
             "organic_treatment": [
-                "Nyunyizia mchanganyiko wa Mafuta ya Mwarobaini (Neem Oil) - vijiko 2 kwa lita 1 ya maji kila baada ya siku 7.",
-                "Punguza majani ya chini yaliyokaribia ardhi ili kuzuia fangasi kurukiwa na maji ya kumwagilia.",
-                "Tumia matandazo (Mulching) ya nyasi kavu kuzuia udongo wenye vijidudu kurukia mimea."
+                "Apply cold-pressed Neem Oil extract (2 tbsp / 1 Liter water) every 7 days as an organic bio-fungicide.",
+                "Prune lower canopy leaves within 30cm of the soil surface to eliminate soil splashback.",
+                "Apply clean organic straw mulching to create a physical barrier preventing fungal spore ejection."
             ],
             "chemical_treatment": [
-                "Nyunyizia Copper Oxychloride 50% WP (Gramu 25 kwa lita 10 za maji) au Mancozeb.",
-                "Weka muda wa siku 7 kabla ya kuvuna (Pre-harvest interval)."
+                "Apply Copper Oxychloride 50% WP (25g per 10 Liters water) or Mancozeb protective fungicide.",
+                "Strictly observe a 7-day pre-harvest interval (PHI) before consumer distribution."
             ],
-            "irrigation_adjustment": "Acha kabisa kumwagilia kwa mfumo wa kunyunyizia juu (overhead sprinklers). Badilisha kuwa dripu (drip irrigation) ili majani yabaki makavu."
+            "irrigation_adjustment": "Immediately discontinue overhead sprinkler irrigation. Transition to drip irrigation to keep canopy foliage dry."
         },
         "tomato_late_blight": {
-            "crop": "Tomato (Nyanya)",
+            "crop": "Tomato",
             "disease_name": "Late Blight (Phytophthora infestans)",
-            "swahili_name": "Bakajani la Marehemu / Kuoza Nyanya",
-            "cause": "Hali ya hewa ya baridi na unyevu mkubwa (>90%) kwa siku kadhaa mfululizo.",
+            "common_name": "Destructive Water-Mold Blight",
+            "cause": "High relative humidity (>90%) with cool temperatures (15-22°C) promoting rapid sporulation.",
             "severity": "Severe / Critical",
             "organic_treatment": [
-                "Ondoa na choma mara moja mimea iliyoathirika sana ili kuzuia kuenea shamba zima.",
-                "Nyunyizia mchanganyiko wa majivu ya jikoni na maji yaliyochujwa yaliyochanganywa na sabuni kidogo ya asili."
+                "Urgently rogue out and destroy severely infected plants to prevent airborne spore dispersion.",
+                "Apply potassium bicarbonate or sulfur bio-spray to suppress mycelial propagation."
             ],
             "chemical_treatment": [
-                "Tumia Ridomil Gold (Metalaxyl-M + Mancozeb) gramu 50 kwa lita 20 za maji mara tu unapoona dalili za mwanzo."
+                "Apply targeted systemic fungicide such as Metalaxyl-M + Mancozeb (Ridomil Gold) at first symptom onset."
             ],
-            "irrigation_adjustment": "Punguza umwagiliaji kwa 35% mara moja mpaka udongo ukauke kiasi; unyevu wa kupindukia unachochea kuenea kwa ugonjwa huu."
+            "irrigation_adjustment": "Reduce irrigation frequency by 35% immediately to allow topsoil drying; excess saturation accelerates blight spread."
         },
         "tomato_healthy": {
-            "crop": "Tomato (Nyanya)",
-            "disease_name": "Healthy Plant (Mmea Una Afya Bora)",
-            "swahili_name": "Mmea Mzima usio na Maambukizi",
-            "cause": "Utunzaji mzuri na umwagiliaji stahiki wa kiwango sahihi.",
+            "crop": "Tomato",
+            "disease_name": "Healthy Foliage (Vigorous Canopy)",
+            "common_name": "Zero Pathogen Detection",
+            "cause": "Optimal nutrient management and precision irrigation balancing.",
             "severity": "None",
             "organic_treatment": [
-                "Endelea na ulishaji wa mboji safi na matandazo ya udongo."
+                "Maintain scheduled compost tea applications and soil microbial health."
             ],
             "chemical_treatment": [
-                "Hakuna dawa ya kemikali inayohitajika."
+                "No chemical fungicides required. Maintain biological prophylaxis."
             ],
-            "irrigation_adjustment": "Endelea na ratiba ya kawaida ya AgroPulse AI kulingana na unyevu wa udongo."
+            "irrigation_adjustment": "Continue regular automated schedule according to NeuralStorm AI soil moisture readings."
         },
         "maize_rust": {
-            "crop": "Maize (Mahindi)",
+            "crop": "Maize / Corn",
             "disease_name": "Common Rust (Puccinia sorghi)",
-            "swahili_name": "Kutu ya Majani ya Mahindi",
-            "cause": "Upepo na unyevunyevu wa asubuhi kwenye majani ya mahindi.",
+            "common_name": "Foliar Pustule Rust",
+            "cause": "Airborne urediniospores germinating during extended morning dew periods.",
             "severity": "Moderate",
             "organic_treatment": [
-                "Panda mbegu zinazostahimili kutu ya majani katika msimu ujao.",
-                "Nyunyizia mkojo wa ng'ombe uliovundikwa (Cow urine bio-spray) uliochemshwa na majani ya mwarobaini."
+                "Select certified rust-tolerant hybrid seed varieties for subsequent planting rotations.",
+                "Apply botanical bio-extracts (neem + garlic bio-fungicide) during early vegetative stages."
             ],
             "chemical_treatment": [
-                "Nyunyizia Azoxystrobin au Tebuconazole pale kutu inapozidi 15% ya majani."
+                "Apply systemic triazole or strobilurin fungicides (e.g., Azoxystrobin) if pustules exceed 15% leaf surface area."
             ],
-            "irrigation_adjustment": "Mwagilia asubuhi na mapema (06:00 AM) ili jua la mchana lianushe majani haraka."
+            "irrigation_adjustment": "Schedule irrigation early morning (06:00 AM) so rising daytime temperatures and solar radiation evaporate leaf moisture rapidly."
         },
         "maize_healthy": {
-            "crop": "Maize (Mahindi)",
-            "disease_name": "Healthy Maize (Mahindi Yenye Afya)",
-            "swahili_name": "Mmea Mzima",
-            "cause": "Hakuna maambukizi.",
+            "crop": "Maize / Corn",
+            "disease_name": "Healthy Maize (Optimal Leaf Blade)",
+            "common_name": "Zero Pathogen Detection",
+            "cause": "Well-balanced nitrogen uptake and optimal soil moisture maintenance.",
             "severity": "None",
-            "organic_treatment": ["Dumisha unadhifu wa shamba na uondoe magugu."],
-            "chemical_treatment": ["Hakuna."],
-            "irrigation_adjustment": "Endelea na kiwango kilichopendekezwa na AgroPulse."
+            "organic_treatment": ["Maintain weed-free root zones and balanced green manure."],
+            "chemical_treatment": ["None required."],
+            "irrigation_adjustment": "Maintain current precision volume calculated by NeuralStorm AI."
         },
         "potato_early_blight": {
-            "crop": "Potato (Viazi Mviringo)",
+            "crop": "Potato",
             "disease_name": "Potato Early Blight (Alternaria solani)",
-            "swahili_name": "Ugonjwa wa Madoa ya Viazi",
-            "cause": "Mabadiliko makali kati ya ukame na mvua za ghafla pamoja na upungufu wa unyevu unaotabirika.",
+            "common_name": "Concentric Target Spot",
+            "cause": "Severe alternating cycles of moisture drought stress followed by heavy moisture inundation.",
             "severity": "Moderate",
             "organic_treatment": [
-                "Ongeza mbolea ya asili ya samadi yenye potasiamu ya kutosha kuongeza kinga ya mmea.",
-                "Ondoa majani ya chini yaliyoanza kuonyesha madoa meusi."
+                "Boost soil organic matter with well-aged compost rich in potassium to fortify plant immune response.",
+                "Strip senescent lower leaves showing early concentric necrosis."
             ],
             "chemical_treatment": [
-                "Daconil (Chlorothalonil) 720 SC kwa kiwango cha 2ml kwa lita ya maji."
+                "Apply Chlorothalonil 720 SC (2 ml per Liter of water) during early tuber bulking."
             ],
-            "irrigation_adjustment": "Dumisha unyevu thabiti (steady soil moisture) kati ya 65%-75%; ukame wa mara kwa mara unafuatiwa na maji mengi hudhoofisha viazi."
+            "irrigation_adjustment": "Maintain steady soil moisture between 65%-75% field capacity. Avoid drought shock followed by over-saturation."
         }
     }
 
@@ -130,7 +131,8 @@ class CropDiseaseRegistry:
             "disease_key": key,
             "crop": data["crop"],
             "disease_name": data["disease_name"],
-            "swahili_name": data["swahili_name"],
+            "common_name": data["common_name"],
+            "swahili_name": data["common_name"],  # backward compatibility
             "confidence_pct": conf,
             "severity": data["severity"],
             "cause": data["cause"],

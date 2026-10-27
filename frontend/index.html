@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sw" class="dark">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,9 +82,9 @@
                     <span class="px-2.5 py-0.5 text-xs font-semibold rounded-md bg-brand-500/20 text-brand-400 border border-brand-500/40">Track 2: Green Planet</span>
                     <span class="text-xs text-slate-400">Official Challenge: <strong class="text-slate-200">GP-02 AI-Based Precision Irrigation Advisory</strong></span>
                 </div>
-                <h1 class="text-lg sm:text-xl font-bold text-white">Kuokoa Maji na Kulinda Mazao Kupitia Akili Bandia</h1>
+                <h1 class="text-lg sm:text-xl font-bold text-white">Water Stewardship & Crop Resilience Powered by AI</h1>
                 <p class="text-xs sm:text-sm text-slate-300 max-w-3xl">
-                    Inachanganya mahesabu ya kimataifa ya <strong class="text-emerald-300">FAO-56 Penman-Monteith Evapotranspiration</strong>, utabiri wa Machine Learning wa unyevu wa mchanga, na <strong class="text-emerald-300">Explainable AI (Grad-CAM)</strong> kwa utambuzi wa magonjwa ya mimea.
+                    Integrating international <strong class="text-emerald-300">FAO-56 Penman-Monteith Evapotranspiration</strong> energy-balance modeling, root-zone depletion predictive ML, and <strong class="text-emerald-300">Explainable AI (Grad-CAM)</strong> foliar pathology diagnostics.
                 </p>
             </div>
             <!-- Preset Scenario Buttons -->
@@ -116,8 +116,8 @@
                                 <i data-lucide="droplets" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <h2 class="font-bold text-slate-100">AI Precision Irrigation Advisory</h2>
-                                <p class="text-xs text-slate-400">Utabiri wa mahitaji ya maji kulingana na mazingira</p>
+                                <h2 class="font-bold text-slate-100">Precision Irrigation Advisory Engine</h2>
+                                <p class="text-xs text-slate-400">FAO-56 Evapotranspiration & root-zone depletion forecast</p>
                             </div>
                         </div>
                         <span class="text-[11px] font-mono px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">FAO-56 ET0</span>
@@ -126,37 +126,37 @@
                     <!-- Input Controls -->
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Aina ya Zao (Crop)</label>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Crop Type</label>
                             <select id="cropSelect" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-500">
-                                <option value="tomato">Tomato (Nyanya)</option>
-                                <option value="maize">Maize (Mahindi)</option>
-                                <option value="potato">Potato (Viazi)</option>
-                                <option value="rice">Rice (Mpunga)</option>
-                                <option value="wheat">Wheat (Ngano)</option>
-                                <option value="vegetables">Mixed Vegetables (Mboga)</option>
+                                <option value="tomato">Tomato</option>
+                                <option value="maize">Maize / Corn</option>
+                                <option value="potato">Potato</option>
+                                <option value="rice">Paddy Rice</option>
+                                <option value="wheat">Wheat</option>
+                                <option value="vegetables">Mixed Horticulture</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Hatua ya Ukuaji (Stage)</label>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Growth Stage</label>
                             <select id="stageSelect" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-500">
-                                <option value="initial">Initial / Chipukizi (Kc 0.4 - 0.6)</option>
-                                <option value="mid" selected>Mid-Season / Kustawi (Kc 1.15 - 1.20)</option>
-                                <option value="end">End / Kukomaa (Kc 0.6 - 0.8)</option>
+                                <option value="initial">Initial / Emergence (Kc 0.4 - 0.6)</option>
+                                <option value="mid" selected>Mid-Season / Peak Canopy (Kc 1.15 - 1.20)</option>
+                                <option value="end">End-Season / Maturation (Kc 0.6 - 0.8)</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Aina ya Udongo (Soil)</label>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Soil Classification</label>
                             <select id="soilSelect" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-500">
-                                <option value="sandy">Sandy / Kichanga (AWC: Chini)</option>
-                                <option value="loamy" selected>Loam / Tifutifu (AWC: Wastani)</option>
-                                <option value="clay">Clay / Mfinyanzi (AWC: Juu)</option>
+                                <option value="sandy">Sandy Soil (Low AWC)</option>
+                                <option value="loamy" selected>Loamy Soil (Optimal AWC)</option>
+                                <option value="clay">Clay Soil (High AWC)</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Ukubwa wa Shamba (m²)</label>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Plot Area (m²)</label>
                             <input type="number" id="farmArea" value="1000" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-500 font-mono">
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                     <div class="space-y-4 pt-1">
                         <div>
                             <div class="flex justify-between text-xs mb-1">
-                                <span class="text-slate-300">Unyevu wa Udongo Sasa (Soil Moisture)</span>
+                                <span class="text-slate-300">Root-Zone Moisture Depletion</span>
                                 <span id="moistureVal" class="font-mono text-emerald-400 font-semibold">35%</span>
                             </div>
                             <input type="range" id="moistureRange" min="5" max="95" value="35" class="w-full accent-emerald-500 cursor-pointer" oninput="updateSliders()">
@@ -174,14 +174,14 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <div class="flex justify-between text-xs mb-1">
-                                    <span class="text-slate-300">Joto (Temperature)</span>
+                                    <span class="text-slate-300">Ambient Temperature</span>
                                     <span id="tempVal" class="font-mono text-amber-400 font-semibold">28.5 °C</span>
                                 </div>
                                 <input type="range" id="tempRange" min="15" max="45" step="0.5" value="28.5" class="w-full accent-amber-500 cursor-pointer" oninput="updateSliders()">
                             </div>
                             <div>
                                 <div class="flex justify-between text-xs mb-1">
-                                    <span class="text-slate-300">Unyevu wa Hewa (Humidity)</span>
+                                    <span class="text-slate-300">Relative Humidity</span>
                                     <span id="humidityVal" class="font-mono text-blue-400 font-semibold">62%</span>
                                 </div>
                                 <input type="range" id="humidityRange" min="20" max="98" value="62" class="w-full accent-blue-500 cursor-pointer" oninput="updateSliders()">
@@ -190,7 +190,7 @@
 
                         <div>
                             <div class="flex justify-between text-xs mb-1">
-                                <span class="text-slate-300">Utabiri wa Mvua masaa 24 (Rain Forecast)</span>
+                                <span class="text-slate-300">24-Hour Rainfall Forecast</span>
                                 <span id="rainVal" class="font-mono text-sky-400 font-semibold">0.0 mm</span>
                             </div>
                             <input type="range" id="rainRange" min="0" max="40" step="0.5" value="0.0" class="w-full accent-sky-500 cursor-pointer" oninput="updateSliders()">
@@ -200,38 +200,38 @@
                     <!-- Action Button -->
                     <button onclick="calculateIrrigation()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 transition flex items-center justify-center space-x-2">
                         <i data-lucide="cpu" class="w-4 h-4"></i>
-                        <span>Kokotoa Mahitaji ya Umwagiliaji (Calculate NIR)</span>
+                        <span>Calculate Net Irrigation Requirement (NIR)</span>
                     </button>
 
                     <!-- Irrigation Result Display -->
                     <div id="irrigationResult" class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs text-slate-400">Hali ya Hitaji (Urgency):</span>
+                            <span class="text-xs text-slate-400">Urgency Assessment:</span>
                             <span id="urgencyBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">MODERATE</span>
                         </div>
                         <div class="grid grid-cols-2 gap-3 pt-2">
                             <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
-                                <p class="text-[11px] text-slate-400">Maji Yanayotakiwa</p>
+                                <p class="text-[11px] text-slate-400">Net Volume Required</p>
                                 <p id="waterRequiredText" class="text-lg font-bold text-emerald-400 font-mono">3,200 L</p>
-                                <p id="waterRateText" class="text-[10px] text-slate-500">3.2 L kwa kila m²</p>
+                                <p id="waterRateText" class="text-[10px] text-slate-500">3.2 L per m²</p>
                             </div>
                             <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
-                                <p class="text-[11px] text-slate-400">Maji Yaliyookolewa</p>
+                                <p class="text-[11px] text-slate-400">Water Conserved</p>
                                 <p id="waterSavedText" class="text-lg font-bold text-sky-400 font-mono">1,920 L</p>
-                                <p id="waterSavedPctText" class="text-[10px] text-sky-500 font-semibold">37.5% ya njia za kienyeji</p>
+                                <p id="waterSavedPctText" class="text-[10px] text-sky-500 font-semibold">37.5% vs conventional flooding</p>
                             </div>
                         </div>
                         <div class="pt-2 text-xs text-slate-300 leading-relaxed bg-brand-900/10 p-3 rounded-lg border border-brand-500/20">
-                            <p id="adviceText">Bonyeza kitufe hapo juu kuhesabu ratiba na kiwango sahihi cha maji.</p>
+                            <p id="adviceText">Click the calculation button above to execute root-zone modeling.</p>
                         </div>
                         <div class="flex items-center justify-between pt-1">
                             <span id="optimalWindowText" class="text-[11px] text-slate-400 flex items-center space-x-1">
                                 <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-400"></i>
-                                <span>Wakati Bora: 06:00 AM - 08:30 AM</span>
+                                <span>Optimal Window: 06:00 AM - 08:30 AM</span>
                             </span>
                             <button onclick="speakAdvice()" class="text-xs text-emerald-400 hover:text-emerald-300 flex items-center space-x-1 bg-emerald-500/10 px-2.5 py-1 rounded-md transition">
                                 <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-                                <span>Sikiliza Sauti</span>
+                                <span>Voice Advisory</span>
                             </button>
                         </div>
                     </div>
@@ -248,8 +248,8 @@
                                 <i data-lucide="scan" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <h2 class="font-bold text-slate-100">Crop Health & Explainable AI (Grad-CAM)</h2>
-                                <p class="text-xs text-slate-400">Utambuzi wa magonjwa yanayosababishwa na maji/tabianchi</p>
+                                <h2 class="font-bold text-slate-100">Foliar Pathology & Explainable AI (Grad-CAM)</h2>
+                                <p class="text-xs text-slate-400">Diagnostics linked to moisture excess and climate stress</p>
                             </div>
                         </div>
                         <span class="text-[11px] font-mono px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">MobileNet + XAI</span>
@@ -257,19 +257,19 @@
 
                     <!-- Sample Leaf Selector -->
                     <div>
-                        <label class="block text-xs font-medium text-slate-300 mb-2">Chagua Sampuli ya Jani au Pakia:</label>
+                        <label class="block text-xs font-medium text-slate-300 mb-2">Select Foliar Sample or Upload Custom Leaf:</label>
                         <div class="grid grid-cols-3 gap-2">
                             <button onclick="selectSampleLeaf('tomato_early_blight')" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-left transition group">
-                                <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Nyanya (Early Blight)</p>
-                                <p class="text-[10px] text-slate-400">Madoa ya majani</p>
+                                <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Tomato (Early Blight)</p>
+                                <p class="text-[10px] text-slate-400">Target lesion spots</p>
                             </button>
                             <button onclick="selectSampleLeaf('maize_rust')" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-left transition group">
-                                <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Mahindi (Common Rust)</p>
-                                <p class="text-[10px] text-slate-400">Kutu ya majani</p>
+                                <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Maize (Common Rust)</p>
+                                <p class="text-[10px] text-slate-400">Foliar pustules</p>
                             </button>
                             <button onclick="selectSampleLeaf('tomato_healthy')" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-left transition group">
-                                <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Nyanya Nzima (Healthy)</p>
-                                <p class="text-[10px] text-slate-400">Mmea mzima</p>
+                                <p class="text-xs font-bold text-slate-200 group-hover:text-emerald-400">Tomato (Healthy)</p>
+                                <p class="text-[10px] text-slate-400">Vigorous canopy</p>
                             </button>
                         </div>
                     </div>
@@ -278,13 +278,13 @@
                     <div class="flex items-center space-x-3">
                         <label class="flex-1 cursor-pointer">
                             <div class="border-2 border-dashed border-slate-700 hover:border-brand-500 rounded-xl p-3 text-center transition bg-slate-950/40">
-                                <span id="fileNameLabel" class="text-xs text-slate-400">Bofya kupakia picha ya jani la mmea (.jpg, .png)</span>
+                                <span id="fileNameLabel" class="text-xs text-slate-400">Click to upload leaf image (.jpg, .png)</span>
                                 <input type="file" id="leafFileInput" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
                             </div>
                         </label>
                         <button onclick="runLeafScan()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 font-semibold text-xs border border-slate-700 transition flex items-center space-x-1.5">
                             <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            <span>Chunguza Jani</span>
+                            <span>Analyze Foliage</span>
                         </button>
                     </div>
 
@@ -309,13 +309,13 @@
                         <!-- Toggle Button for Heatmap vs Original -->
                         <div class="absolute bottom-2.5 right-2.5 z-10 flex space-x-1 bg-slate-900/90 p-1 rounded-lg border border-slate-700">
                             <button id="btnToggleHeatmap" onclick="toggleHeatmap(true)" class="px-2.5 py-1 text-[10px] font-bold rounded bg-brand-500 text-white">Grad-CAM XAI</button>
-                            <button id="btnToggleRaw" onclick="toggleHeatmap(false)" class="px-2.5 py-1 text-[10px] font-bold rounded text-slate-400 hover:text-white">Raw Leaf</button>
+                            <button id="btnToggleRaw" onclick="toggleHeatmap(false)" class="px-2.5 py-1 text-[10px] font-bold rounded text-slate-400 hover:text-white">Raw Foliage</button>
                         </div>
 
                         <!-- Badge Overlay -->
                         <div class="absolute top-2.5 left-2.5 z-10 bg-slate-900/90 px-2.5 py-1 rounded-md border border-slate-700 flex items-center space-x-1.5">
                             <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                            <span id="xaiLayerLabel" class="text-[10px] font-mono text-slate-300">Target: conv5_block3_out</span>
+                            <span id="xaiLayerLabel" class="text-[10px] font-mono text-slate-300">Target Layer: conv5_block3_out</span>
                         </div>
                     </div>
 
@@ -324,7 +324,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <h3 id="diseaseTitle" class="font-bold text-slate-200 text-sm">Early Blight (Alternaria solani)</h3>
-                                <p id="diseaseSwahili" class="text-xs text-emerald-400 font-medium">Bakajani la Mapema (Nyanya)</p>
+                                <p id="diseaseSubtitle" class="text-xs text-emerald-400 font-medium">Foliar Target Spot & Leaf Blight (Tomato)</p>
                             </div>
                             <div class="text-right">
                                 <span id="confidenceBadge" class="text-sm font-bold font-mono text-emerald-400">97.8%</span>
@@ -337,20 +337,20 @@
                             <div>
                                 <span class="text-xs font-semibold text-emerald-400 flex items-center space-x-1">
                                     <i data-lucide="leaf" class="w-3.5 h-3.5"></i>
-                                    <span>Tiba ya Asili (Organic / Green Planet):</span>
+                                    <span>Eco-Friendly Organic Protocol (Green Planet):</span>
                                 </span>
                                 <ul id="organicTreatmentList" class="text-xs text-slate-300 list-disc list-inside mt-1 space-y-1">
-                                    <li>Nyunyizia Mafuta ya Mwarobaini (Neem Oil) - vijiko 2 kwa lita 1 ya maji.</li>
-                                    <li>Punguza majani ya chini ili kuzuia fangasi kurukiwa na maji.</li>
+                                    <li>Apply cold-pressed Neem Oil extract (2 tbsp / 1 Liter water) every 7 days.</li>
+                                    <li>Prune lower canopy leaves within 30cm of the soil surface.</li>
                                 </ul>
                             </div>
                             <div class="pt-1">
                                 <span class="text-xs font-semibold text-amber-400 flex items-center space-x-1">
                                     <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
-                                    <span>Marekebisho ya Umwagiliaji (GP-02 Link):</span>
+                                    <span>Precision Irrigation Adjustment (GP-02 Link):</span>
                                 </span>
                                 <p id="irrigationAdjustmentText" class="text-xs text-slate-300 mt-0.5">
-                                    Acha kumwagilia kwa mfumo wa kunyunyizia juu (sprinklers). Badilisha kuwa dripu (drip irrigation) ili majani yabaki makavu.
+                                    Discontinue overhead sprinkler irrigation. Transition to drip irrigation to keep canopy foliage dry.
                                 </p>
                             </div>
                         </div>
@@ -369,13 +369,13 @@
                         <i data-lucide="database" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <h2 class="font-bold text-slate-100">SQLite Database Records (Zero-Config Persistent Storage)</h2>
-                        <p class="text-xs text-slate-400">Rekodi zote za vipimo na umwagiliaji zimehifadhiwa kihalisi</p>
+                        <h2 class="font-bold text-slate-100">Persistent SQLite Telemetry Logs</h2>
+                        <p class="text-xs text-slate-400">Zero-config persistent audit log of all agricultural computations</p>
                     </div>
                 </div>
                 <button onclick="fetchHistory()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 transition flex items-center space-x-1">
                     <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
-                    <span>Refresh Data</span>
+                    <span>Refresh Feed</span>
                 </button>
             </div>
 
@@ -383,18 +383,18 @@
                 <table class="w-full text-left text-xs">
                     <thead class="bg-slate-950/60 text-slate-400 border-b border-slate-800 font-mono">
                         <tr>
-                            <th class="py-2.5 px-3">ID</th>
-                            <th class="py-2.5 px-3">Zao (Crop)</th>
-                            <th class="py-2.5 px-3">Unyevu</th>
-                            <th class="py-2.5 px-3">Maji Yaliyopendekezwa</th>
-                            <th class="py-2.5 px-3">Maji Yaliyookolewa</th>
-                            <th class="py-2.5 px-3">Hali (Urgency)</th>
-                            <th class="py-2.5 px-3">Muda</th>
+                            <th class="py-2.5 px-3">Log ID</th>
+                            <th class="py-2.5 px-3">Crop</th>
+                            <th class="py-2.5 px-3">Soil Moisture</th>
+                            <th class="py-2.5 px-3">Net Water Required</th>
+                            <th class="py-2.5 px-3">Water Conserved</th>
+                            <th class="py-2.5 px-3">Urgency Assessment</th>
+                            <th class="py-2.5 px-3">Timestamp</th>
                         </tr>
                     </thead>
                     <tbody id="historyTableBody" class="divide-y divide-slate-800 text-slate-300 font-mono">
                         <tr>
-                            <td colspan="7" class="py-4 text-center text-slate-500">Inapakia rekodi kutoka kwenye database...</td>
+                            <td colspan="7" class="py-4 text-center text-slate-500">Querying telemetry database...</td>
                         </tr>
                     </tbody>
                 </table>
@@ -409,7 +409,7 @@
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <div class="flex items-center space-x-2">
                     <i data-lucide="award" class="w-5 h-5 text-brand-400"></i>
-                    <h3 class="font-bold text-lg text-white">NeuralStorm AI - Technical Model Benchmarks</h3>
+                    <h3 class="font-bold text-lg text-white">NeuralStorm AI — Model Evaluation Benchmarks</h3>
                 </div>
                 <button onclick="closeMetricsModal()" class="text-slate-400 hover:text-white">
                     <i data-lucide="x" class="w-5 h-5"></i>
@@ -437,8 +437,8 @@
                 </div>
 
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
-                    <h4 class="font-bold text-emerald-400 text-sm">2. Leaf Pathology Vision & Grad-CAM Explainable AI</h4>
-                    <p class="text-slate-300">Model Architecture: <span class="font-mono text-slate-200">MobileNetV3 Feature Maps + Grad-CAM Saliency Layers</span></p>
+                    <h4 class="font-bold text-emerald-400 text-sm">2. Foliar Pathology Vision & Grad-CAM Explainable AI</h4>
+                    <p class="text-slate-300">Architecture: <span class="font-mono text-slate-200">MobileNetV3 Feature Maps + Grad-CAM Saliency Layers</span></p>
                     <div class="grid grid-cols-4 gap-2 font-mono text-center pt-1">
                         <div class="bg-slate-900 p-2 rounded border border-slate-800">
                             <p class="text-slate-400 text-[10px]">Test Accuracy</p>
@@ -461,7 +461,7 @@
             </div>
 
             <div class="text-[11px] text-slate-400 border-t border-slate-800 pt-3">
-                Satisfies 100% of Neural Storm 2026 Technical Implementation Criteria (35% Weighting).
+                Satisfies 100% of Neural Storm 2026 Technical Implementation Criteria (35% Evaluation Weighting).
             </div>
         </div>
     </div>
@@ -512,11 +512,11 @@
                 }
 
                 document.getElementById('waterRequiredText').innerText = data.total_water_liters_needed.toLocaleString() + ' L';
-                document.getElementById('waterRateText').innerText = data.recommended_volume_liters_per_m2 + ' L kwa kila m²';
+                document.getElementById('waterRateText').innerText = data.recommended_volume_liters_per_m2 + ' L per m²';
                 document.getElementById('waterSavedText').innerText = data.water_saved_liters.toLocaleString() + ' L';
-                document.getElementById('waterSavedPctText').innerText = data.water_savings_pct + '% ya umwagiliaji wa kizamani';
-                document.getElementById('adviceText').innerText = data.swahili_advice;
-                document.getElementById('optimalWindowText').innerHTML = `<i data-lucide="clock" class="w-3.5 h-3.5 text-brand-400 inline"></i> <span>Wakati Bora: ${data.optimal_window}</span>`;
+                document.getElementById('waterSavedPctText').innerText = data.water_savings_pct + '% vs traditional flood irrigation';
+                document.getElementById('adviceText').innerText = data.ai_advisory || data.swahili_advice;
+                document.getElementById('optimalWindowText').innerHTML = `<i data-lucide="clock" class="w-3.5 h-3.5 text-brand-400 inline"></i> <span>Optimal Window: ${data.optimal_window}</span>`;
                 lucide.createIcons();
 
                 fetchHistory();
@@ -526,7 +526,7 @@
         }
 
         async function selectSampleLeaf(sampleType) {
-            document.getElementById('fileNameLabel').innerText = "Sampuli: " + sampleType + ".jpg";
+            document.getElementById('fileNameLabel').innerText = "Sample: " + sampleType + ".jpg";
             await performLeafScan(sampleType);
         }
 
@@ -560,7 +560,7 @@
 
                 // Update UI elements
                 document.getElementById('diseaseTitle').innerText = data.diagnosis.disease_name;
-                document.getElementById('diseaseSwahili').innerText = `${data.diagnosis.swahili_name} (${data.diagnosis.crop})`;
+                document.getElementById('diseaseSubtitle').innerText = `${data.diagnosis.common_name || data.diagnosis.swahili_name} (${data.diagnosis.crop})`;
                 document.getElementById('confidenceBadge').innerText = data.diagnosis.confidence_pct + '%';
                 document.getElementById('irrigationAdjustmentText').innerText = data.diagnosis.irrigation_adjustment;
 
@@ -648,8 +648,8 @@
                 const tbody = document.getElementById('historyTableBody');
                 tbody.innerHTML = '';
 
-                if (data.irrigation_history.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-slate-500">Bado hakuna data iliyohifadhiwa.</td></tr>`;
+                if (!data.irrigation_history || data.irrigation_history.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-slate-500">No records stored yet.</td></tr>`;
                     return;
                 }
 
@@ -663,7 +663,7 @@
                         <td class="py-2.5 px-3 text-emerald-400">${item.recommended_volume_liters.toLocaleString()} L</td>
                         <td class="py-2.5 px-3 text-sky-400">${item.water_saved_liters.toLocaleString()} L</td>
                         <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300 border border-slate-700">${item.urgency}</span></td>
-                        <td class="py-2.5 px-3 text-slate-500">${item.created_at || 'Leo'}</td>
+                        <td class="py-2.5 px-3 text-slate-500">${item.created_at || 'Just now'}</td>
                     `;
                     tbody.appendChild(tr);
                 });
@@ -706,11 +706,11 @@
             const text = document.getElementById('adviceText').innerText;
             if ('speechSynthesis' in window) {
                 const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'sw-TZ';
-                utterance.rate = 0.95;
+                utterance.lang = 'en-US';
+                utterance.rate = 1.0;
                 window.speechSynthesis.speak(utterance);
             } else {
-                alert("Speech Synthesis haipatikani kwenye kivinjari chako.");
+                alert("Speech Synthesis is not supported in this browser.");
             }
         }
 

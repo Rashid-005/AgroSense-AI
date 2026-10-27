@@ -70,8 +70,8 @@ class ExplainableAIEngine:
             "grid_dimensions": {"cols": grid_cols, "rows": grid_rows},
             "hotspots": svg_circles,
             "interpretation": (
-                "Kanda zilizoangaziwa kwa rangi nyekundu na njano zinaonyesha upungufu mkubwa wa klorofili "
-                "na kuwepo kwa vidonda vya fangasi (necrotic tissue). Model ya AI iliegemeza uamuzi wake "
-                "kwenye madoa haya ya kijiometri badala ya mazingira ya pembeni."
+                "Regions highlighted in red and amber indicate severe chlorophyll degradation "
+                "and fungal necrotic lesion morphology. The deep neural network grounded its diagnostic "
+                "classification on these focal lesions rather than extraneous background clutter."
             )
         }
