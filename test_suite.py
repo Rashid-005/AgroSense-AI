@@ -126,6 +126,13 @@ def run_tests():
     assert "diagnosis" in r.json()
     assert "explainable_ai" in r.json()
 
+    # Live Weather Telemetry
+    r = client.get("/api/weather/live?location=zanzibar")
+    assert r.status_code == 200
+    assert "temperature_c" in r.json()
+    assert "humidity_pct" in r.json()
+    assert "rainfall_forecast_mm" in r.json()
+
     # Presets
     r = client.get("/api/presets")
     assert r.status_code == 200

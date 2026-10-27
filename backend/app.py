@@ -24,6 +24,7 @@ from ml_engine.irrigation_model import PrecisionIrrigationEngine
 from ml_engine.leaf_pathology import CropDiseaseRegistry
 from ml_engine.explainable_ai import ExplainableAIEngine
 from ml_engine.metrics_evaluator import get_official_benchmarks
+from ml_engine.weather_service import LiveWeatherService
 
 app = FastAPI(
     title="AgroSense AI - Precision Irrigation & Crop Health Intelligence",
@@ -85,6 +86,19 @@ def health_check():
         "challenge_code": "GP-02",
         "version": "1.0.0"
     }
+
+
+@app.get("/api/weather/live")
+def get_live_weather(
+    location: str = "zanzibar",
+    lat: Optional[float] = None,
+    lon: Optional[float] = None
+):
+    """
+    Fetches real-time temperature, humidity, and 24h precipitation forecast
+    for the selected farming location or GPS coordinates.
+    """
+    return LiveWeatherService.fetch_live_weather(location_key=location, lat=lat, lon=lon)
 
 
 @app.get("/api/metrics")
