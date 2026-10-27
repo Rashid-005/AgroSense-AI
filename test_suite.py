@@ -1,5 +1,5 @@
 """
-NeuralStorm AI - Comprehensive Automated Test Suite
+AgroSense AI - Comprehensive Automated Test Suite
 Verifies all ML algorithms, Explainable AI, SQLite persistence, and API endpoints.
 """
 
@@ -21,7 +21,7 @@ from backend.app import app
 
 def run_tests():
     print("=" * 60)
-    print("  Running NeuralStorm AI Automated Verification Suite")
+    print("  Running AgroSense AI Automated Verification Suite")
     print("=" * 60)
 
     # 1. Test Precision Irrigation Engine
@@ -102,6 +102,7 @@ def run_tests():
     r = client.get("/api/health")
     assert r.status_code == 200
     assert r.json()["challenge_code"] == "GP-02"
+    assert r.json()["system"] == "AgroSense AI"
 
     # Irrigation calculation
     r = client.post("/api/irrigation/calculate", json={

@@ -26,7 +26,7 @@ from ml_engine.explainable_ai import ExplainableAIEngine
 from ml_engine.metrics_evaluator import get_official_benchmarks
 
 app = FastAPI(
-    title="NeuralStorm AI - Precision Irrigation & Crop Health Intelligence",
+    title="AgroSense AI - Precision Irrigation & Crop Health Intelligence",
     description="Track 2: Green Planet (GP-02) - Autonomous AI-driven precision irrigation and leaf pathology platform.",
     version="1.0.0"
 )
@@ -49,7 +49,7 @@ def serve_dashboard():
     index_file = os.path.join(FRONTEND_DIR, "index.html")
     if os.path.exists(index_file):
         return FileResponse(index_file)
-    return {"message": "NeuralStorm AI Backend is running. Please access /docs for API documentation."}
+    return {"message": "AgroSense AI Backend is running. Please access /docs for API documentation."}
 
 irrigation_engine = PrecisionIrrigationEngine()
 
@@ -80,7 +80,7 @@ class PathologyRequest(BaseModel):
 def health_check():
     return {
         "status": "healthy",
-        "system": "NeuralStorm AI",
+        "system": "AgroSense AI",
         "track": "Track 2: Green Planet",
         "challenge_code": "GP-02",
         "version": "1.0.0"

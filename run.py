@@ -1,5 +1,5 @@
 """
-NeuralStorm AI - 1-Click Launch Script
+AgroSense AI - 1-Click Launch Script
 Track 2: Green Planet | Problem Statement: GP-02 (Precision Irrigation Advisory)
 """
 
@@ -14,7 +14,7 @@ if BASE_DIR not in sys.path:
 
 if __name__ == "__main__":
     print("=" * 70)
-    print("  [*] NeuralStorm AI - Precision Irrigation & Crop Health Intelligence")
+    print("  [*] AgroSense AI - Precision Irrigation & Crop Health Intelligence")
     print("  [*] Track 2: Green Planet | Challenge Code: GP-02")
     print("  [*] Machine Learning: FAO-56 Penman-Monteith (R2: 0.94) + Grad-CAM XAI (96.8%)")
     print("  [*] Database: Native SQLite Persistent Storage")

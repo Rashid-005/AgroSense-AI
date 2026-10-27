@@ -1,4 +1,4 @@
-# 🌿 NeuralStorm AI — Precision Irrigation & Crop Health Intelligence
+# 🌿 AgroSense AI — Precision Irrigation & Crop Health Intelligence
 > **Track 2: Green Planet (Sustainability & Environmental Intelligence)**  
 > **Official Problem Statement:** `GP-02: AI-Based Precision Irrigation Advisory`  
 > **Event:** Neural Storm 2026 (Devpost)
@@ -17,8 +17,8 @@ Smallholder farmers across developing economies face severe agricultural vulnera
 1. **Inefficient Water Usage:** Traditional flood irrigation wastes **40% to 60% of applied water** through surface runoff and evaporation, while promoting root rot and fungal pathogens.
 2. **Delayed Crop Pathology Diagnostics:** Over-irrigation causes fungal foliar diseases (such as *Early Blight* and *Common Rust*). Most smallholders lack access to certified agronomists and indiscriminately spray hazardous chemicals, deteriorating soil health and aquatic ecosystems.
 
-### 💡 The Solution: NeuralStorm AI
-**NeuralStorm AI** is an autonomous, dual-engine agricultural intelligence platform tailored for smallholder farmers and agricultural cooperatives:
+### 💡 The Solution: AgroSense AI
+**AgroSense AI** is an autonomous, dual-engine agricultural intelligence platform tailored for smallholder farmers and agricultural cooperatives:
 * **FAO-56 Penman-Monteith & ML Regressor:** Continuously models reference evapotranspiration ($ET_0$) and crop coefficients ($K_c$) against real-time soil moisture and 24h weather forecasts to determine the exact net irrigation requirement (NIR) in liters per square meter.
 * **Crop Disease Vision & Explainable AI (Grad-CAM):** Scans crop foliage and pinpoints infection loci with heatmaps, preventing unnecessary chemical overuse while suggesting eco-friendly organic remedies (e.g. neem oil, biological mulching).
 * **Native Zero-Config SQLite Storage:** Preserves local farm histories, telemetry logs, and diagnostic scans without requiring external database servers.
@@ -121,7 +121,7 @@ NeuralStorm AI is engineered for **Zero Friction**. It requires no external data
    ```
    *(Verifies all 5 ML modules, database integrity, and HTTP endpoints with 100% pass rate).*
 
-4. **Launch the NeuralStorm AI Platform:**
+4. **Launch the AgroSense AI Platform:**
    ```bash
    python run.py
    ```
@@ -159,8 +159,8 @@ In strict accordance with Neural Storm 2026 rules:
 
 ## 👥 9. Team & Submission Details
 
-* **Project Title:** NeuralStorm AI
+* **Project Title:** AgroSense AI
 * **Problem Statement:** `GP-02: AI-Based Precision Irrigation Advisory`
 * **Track:** Track 2: Green Planet
-* **Developer / Team:** [Mr Silence / Team Neural Storm]
+* **Developer / Team:** [Mr Silence / Team AgroSense]
 * **Hackathon:** Neural Storm 2026 (Devpost)
