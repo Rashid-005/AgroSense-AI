@@ -16,7 +16,8 @@ class CropConstants:
         "potato": {"name": "Potato", "kc_init": 0.5, "kc_mid": 1.15, "kc_end": 0.75, "root_depth_m": 0.5, "depletion_factor": 0.35},
         "rice": {"name": "Paddy Rice", "kc_init": 1.05, "kc_mid": 1.20, "kc_end": 0.90, "root_depth_m": 0.4, "depletion_factor": 0.20},
         "wheat": {"name": "Wheat", "kc_init": 0.3, "kc_mid": 1.15, "kc_end": 0.4, "root_depth_m": 0.8, "depletion_factor": 0.55},
-        "vegetables": {"name": "Mixed Horticulture", "kc_init": 0.5, "kc_mid": 1.05, "kc_end": 0.8, "root_depth_m": 0.5, "depletion_factor": 0.45}
+        "vegetables": {"name": "Mixed Horticulture", "kc_init": 0.5, "kc_mid": 1.05, "kc_end": 0.8, "root_depth_m": 0.5, "depletion_factor": 0.45},
+        "hibiscus": {"name": "Hibiscus (Haibiskasi / Roselle)", "kc_init": 0.5, "kc_mid": 1.05, "kc_end": 0.70, "root_depth_m": 0.7, "depletion_factor": 0.50}
     }
 
     SOIL_TYPES = {

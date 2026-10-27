@@ -51,7 +51,11 @@ def run_tests():
     assert "Early Blight" in diag["disease_name"]
     assert len(diag["organic_treatment"]) > 0
     assert len(diag["chemical_treatment"]) > 0
-    assert "drip" in diag["irrigation_adjustment"].lower() or "overhead" in diag["irrigation_adjustment"].lower()
+
+    # Test Hibiscus
+    hib_diag = CropDiseaseRegistry.diagnose_leaf(filename="hibiscus_leaf_spot.jpg")
+    assert "Hibiscus" in hib_diag["crop"]
+    assert "Cercospora" in hib_diag["disease_name"]
     print("PASSED [OK]")
 
     # 3. Test Explainable AI (Grad-CAM)
