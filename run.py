@@ -14,13 +14,13 @@ if BASE_DIR not in sys.path:
 
 if __name__ == "__main__":
     print("=" * 70)
-    print("  🌿 NeuralStorm AI — Precision Irrigation & Crop Health Intelligence")
-    print("  🏆 Track 2: Green Planet | Challenge Code: GP-02")
-    print("  📊 Machine Learning: FAO-56 Penman-Monteith (R²: 0.94) + Grad-CAM XAI (96.8%)")
-    print("  💾 Database: Native SQLite Persistent Storage (Zero external dependencies)")
+    print("  [*] NeuralStorm AI - Precision Irrigation & Crop Health Intelligence")
+    print("  [*] Track 2: Green Planet | Challenge Code: GP-02")
+    print("  [*] Machine Learning: FAO-56 Penman-Monteith (R2: 0.94) + Grad-CAM XAI (96.8%)")
+    print("  [*] Database: Native SQLite Persistent Storage")
     print("=" * 70)
-    print("  🚀 Starting Server at: http://localhost:8000")
-    print("  📖 Interactive Swagger API Docs at: http://localhost:8000/docs")
+    print("  [>] Starting Server at: http://localhost:8000")
+    print("  [>] Interactive Swagger API Docs at: http://localhost:8000/docs")
     print("=" * 70)
 
     uvicorn.run("backend.app:app", host="0.0.0.0", port=8000, reload=False)
