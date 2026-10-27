@@ -99,19 +99,19 @@ class CropDiseaseRegistry:
         },
         "hibiscus_leaf_spot": {
             "crop": "Hibiscus (Haibiskasi / Roselle)",
-            "disease_name": "Hibiscus Cercospora Leaf Spot (Cercospora malayensis)",
-            "common_name": "Circular Foliar Necrosis & Leaf Spot",
-            "cause": "Stagnant humidity and frequent splashing of irrigation water onto dense hibiscus shrub canopy.",
+            "disease_name": "Hibiscus Chlorosis & Cercospora Leaf Spot",
+            "common_name": "Foliar Chlorosis & Early Spotting",
+            "cause": "Interveinal chlorosis (yellowing around margins and base) caused by root moisture stress / over-watering, combined with early fungal spore spotting and marginal pest feeding.",
             "severity": "Moderate",
             "organic_treatment": [
-                "Apply cold-pressed Neem Oil or horticultural soap spray (2 tablespoons per 1 Liter of water) weekly.",
-                "Prune crowded interior branches to improve cross-ventilation and allow sunlight penetration.",
-                "Collect and safely dispose of fallen infected leaves to eliminate overwintering fungal spores."
+                "Apply organic Epsom Salt spray (Magnesium sulfate: 1 tbsp per 2 Liters water) to replenish magnesium and reverse yellowing chlorosis.",
+                "Spray cold-pressed Neem Oil (2 tbsp per 1 Liter water) weekly to control early fungal spores and leaf-chewing pests.",
+                "Prune crowded lower branches to promote airflow and allow sunlight to dry the foliage."
             ],
             "chemical_treatment": [
-                "Apply Copper-based bio-fungicide or Mancozeb 75 WP at first appearance of circular leaf spots."
+                "Apply Copper Oxychloride 50% WP (25g per 10 Liters water) if necrotic leaf spots expand across the blade."
             ],
-            "irrigation_adjustment": "Water only at the root base using drip or furrow irrigation. Never spray water on the hibiscus canopy."
+            "irrigation_adjustment": "Reduce irrigation frequency immediately. Avoid waterlogged root zones which block nutrient uptake and induce leaf yellowing."
         }
     }
 

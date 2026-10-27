@@ -530,7 +530,13 @@
         async function selectSampleLeaf(sampleType) {
             document.getElementById('fileNameLabel').innerText = sampleType.replace('_', ' ') + '.jpg';
             document.getElementById('emptyImagePrompt').classList.add('hidden');
-            document.getElementById('uploadedImagePreview').classList.add('hidden');
+            const imgPreview = document.getElementById('uploadedImagePreview');
+            if (sampleType === 'hibiscus_leaf_spot') {
+                imgPreview.src = '/static/sample_hibiscus.jpg';
+                imgPreview.classList.remove('hidden');
+            } else {
+                imgPreview.classList.add('hidden');
+            }
             await performLeafScan(sampleType);
         }
 
