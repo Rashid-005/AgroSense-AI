@@ -1,10 +1,12 @@
 # 🌿 AgroSense AI — Precision Irrigation & Crop Health Intelligence
 > **Track 2: Green Planet (Sustainability & Environmental Intelligence)**  
 > **Official Problem Statement:** `GP-02: AI-Based Precision Irrigation Advisory`  
-> **Event:** Neural Storm 2026 (Devpost)
+> **Event:** Neural Storm 2026 (Devpost)  
+> **Live Demo:** [https://agrosense-ai-z4gg.onrender.com/](https://agrosense-ai-z4gg.onrender.com/)
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0-009688.svg?style=flat&logo=fastapi)](https://fastapi.tiangolo.com)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=flat&logo=python)](https://python.org)
+[![Live Demo](https://img.shields.io/badge/Render-Live_Demo-success.svg?style=flat&logo=render)](https://agrosense-ai-z4gg.onrender.com/)
 [![Accuracy](https://img.shields.io/badge/Model_Accuracy-96.8%25-brightgreen.svg)]()
 [![Water Savings](https://img.shields.io/badge/Water_Saved-38.6%25-sky.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
@@ -127,8 +129,9 @@ NeuralStorm AI is engineered for **Zero Friction**. It requires no external data
    ```
 
 5. **Access the application:**
-   * 🌐 **Interactive Dashboard:** [http://localhost:8000](http://localhost:8000)
-   * 📖 **Interactive Swagger REST API:** [http://localhost:8000/docs](http://localhost:8000/docs)
+   * 🚀 **Live Production App (Render):** [https://agrosense-ai-z4gg.onrender.com/](https://agrosense-ai-z4gg.onrender.com/)
+   * 🌐 **Local Interactive Dashboard:** [http://localhost:8000](http://localhost:8000)
+   * 📖 **Interactive Swagger REST API:** [https://agrosense-ai-z4gg.onrender.com/docs](https://agrosense-ai-z4gg.onrender.com/docs)
 
 ---
 
